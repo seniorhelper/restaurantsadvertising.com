@@ -1,0 +1,1792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NFC Menus for Restaurants: Tap Menus Google &amp; AI Can Read | RestaurantsAdvertising.com</title>
+<meta name="description" content="NFC menus explained: how tap menus work, how they compare to QR codes, and why a PDF menu makes your restaurant invisible to Google and AI assistants. Free delivery commission calculator.">
+<link rel="canonical" href="https://restaurantsadvertising.com/nfc-menu-restaurants/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Zachary Tye Wennstedt">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="RestaurantsAdvertising.com">
+<meta property="og:title" content="NFC Menus for Restaurants: Tap Menus Google and AI Can Read">
+<meta property="og:description" content="One tap for your guest. A findable page for everyone else. Why a PDF menu makes your restaurant invisible.">
+<meta property="og:url" content="https://restaurantsadvertising.com/nfc-menu-restaurants/">
+<meta property="og:image" content="https://restaurantsadvertising.com/images/nfc-menu-restaurants.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/images/restaurants-advertising-favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="/images/restaurants-advertising-favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Public+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ember:#E8541F;
+  --ember-dk:#C0410F;
+  --ember-txt:#AD3A0B;
+  --ember-lt:#FF7A45;
+  --char:#141110;
+  --char-2:#241E1A;
+  --ash:#5B534D;
+  --ash-lt:#6A615B;
+  --cream:#FBF7F2;
+  --sand:#F2EAE0;
+  --butter:#F5B93D;
+  --pine:#1F6B54;
+  --line:#E3D9CE;
+  --white:#FFFFFF;
+  --disp:'Archivo',system-ui,sans-serif;
+  --body:'Public Sans',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+  --wrap:1180px;
+  --r:14px;
+  --shadow:0 2px 4px rgba(20,17,16,.04),0 12px 32px rgba(20,17,16,.07);
+  --shadow-lg:0 4px 8px rgba(20,17,16,.05),0 24px 60px rgba(20,17,16,.11);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--white);color:var(--char);
+  font-family:var(--body);font-size:18px;line-height:1.72;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--ember-txt);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:3px solid var(--ember);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+.narrow{max-width:820px;margin:0 auto}
+
+h1,h2,h3,h4{font-family:var(--disp);font-weight:800;line-height:1.06;letter-spacing:-.022em;margin:0 0 18px;color:var(--char)}
+h1{font-size:clamp(2.5rem,6.2vw,4.5rem);font-weight:900;letter-spacing:-.035em}
+h2{font-size:clamp(1.95rem,4.1vw,3.05rem);font-weight:900;letter-spacing:-.03em}
+h3{font-size:clamp(1.3rem,2.3vw,1.72rem)}
+h4{font-size:1.12rem;letter-spacing:-.01em}
+p{margin:0 0 20px}
+.lede{font-size:clamp(1.12rem,2vw,1.32rem);line-height:1.62;color:var(--ash)}
+.eyebrow{
+  font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.17em;
+  text-transform:uppercase;color:var(--ember-txt);margin:0 0 14px;display:block;
+}
+.eyebrow.on-dark{color:var(--butter)}
+
+/* ---------- HEADER : WHITE ---------- */
+.hdr{
+  position:sticky;top:0;z-index:900;background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.hdr-in{
+  max-width:var(--wrap);margin:0 auto;padding:12px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.brand{display:flex;align-items:center;flex-shrink:0}
+.brand-logo{width:300px;height:76px;object-fit:contain;object-position:left center;max-width:none}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{
+  font-family:var(--disp);font-weight:700;font-size:.95rem;color:var(--char);
+  letter-spacing:-.01em;text-decoration:none;padding:6px 0;position:relative;
+}
+.nav a::after{
+  content:"";position:absolute;left:0;bottom:0;width:0;height:2px;
+  background:var(--ember);transition:width .22s ease;
+}
+.nav a:hover::after,.nav a[aria-current="page"]::after{width:100%}
+.nav a:hover{text-decoration:none}
+.hdr-right{display:flex;align-items:center;gap:14px}
+.hdr-tel{font-family:var(--mono);font-size:.86rem;font-weight:700;color:var(--char)}
+.burger{
+  display:none;background:none;border:1.5px solid var(--line);border-radius:9px;
+  width:46px;height:42px;cursor:pointer;flex-direction:column;
+  align-items:center;justify-content:center;gap:5px;padding:0;
+}
+.burger span{display:block;width:20px;height:2px;background:var(--char);border-radius:2px;transition:.24s}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobnav{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:899;
+  background:var(--white);border-top:1px solid var(--line);
+  padding:22px 24px 40px;overflow-y:auto;
+}
+.mobnav.open{display:block}
+.mobnav a{
+  display:block;font-family:var(--disp);font-weight:800;font-size:1.24rem;
+  color:var(--char);padding:15px 0;border-bottom:1px solid var(--line);text-decoration:none;
+}
+.mobnav .btn{margin-top:22px;border-bottom:none;text-align:center}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--disp);font-weight:800;font-size:1rem;letter-spacing:-.01em;
+  padding:15px 28px;border-radius:10px;border:2px solid transparent;
+  cursor:pointer;text-decoration:none;transition:transform .16s ease,box-shadow .16s ease,background .16s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-p{background:var(--ember-dk);color:#fff;box-shadow:0 4px 0 #8F300A}
+.btn-p:hover{background:#A83A0B;box-shadow:0 6px 0 #8F300A}
+.btn-d{background:var(--char);color:#fff;box-shadow:0 4px 0 #000}
+.btn-d:hover{background:var(--char-2)}
+.btn-o{background:transparent;color:var(--char);border-color:var(--char)}
+.btn-o:hover{background:var(--char);color:#fff}
+.btn-o.on-dark{color:#fff;border-color:rgba(255,255,255,.5)}
+.btn-o.on-dark:hover{background:#fff;color:var(--char)}
+.btn-sm{padding:11px 20px;font-size:.9rem}
+
+/* ---------- SECTIONS ---------- */
+section{padding:84px 0}
+.sec-cream{background:var(--cream)}
+.sec-sand{background:var(--sand)}
+.sec-dark{background:var(--char);color:#fff}
+.sec-dark h2,.sec-dark h3,.sec-dark h4{color:#fff}
+.sec-dark p{color:#CFC6BE}
+.sec-dark .lede{color:#D8CFC7}
+.sec-tight{padding:56px 0}
+.sec-head{max-width:800px;margin:0 0 46px}
+.sec-head.ctr{margin:0 auto 46px;text-align:center}
+
+/* ---------- HERO ---------- */
+.hero{
+  background:var(--char);color:#fff;padding:74px 0 0;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(900px 480px at 78% 8%,rgba(232,84,31,.26),transparent 62%);
+  pointer-events:none;
+}
+.hero-in{position:relative;z-index:2;display:grid;grid-template-columns:1.02fr .98fr;gap:54px;align-items:center}
+.hero h1{color:#fff;margin-bottom:22px}
+.hero h1 em{font-style:normal;color:var(--ember-lt);display:block}
+.hero p{color:#D2C9C1}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin:30px 0 26px}
+.hero-img{border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-lg);background:#fff}
+.hero-img img{width:100%}
+.hero-trust{
+  display:flex;flex-wrap:wrap;gap:10px 26px;padding:20px 0 0;
+  border-top:1px solid rgba(255,255,255,.14);
+  font-family:var(--mono);font-size:.76rem;letter-spacing:.05em;
+  text-transform:uppercase;color:#9C918A;
+}
+.hero-trust span{display:flex;align-items:center;gap:7px}
+.hero-trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ember)}
+
+/* alarm bar */
+.alarm{background:var(--ember);color:#fff;padding:0}
+.alarm-in{
+  display:flex;align-items:center;gap:26px;flex-wrap:wrap;
+  padding:26px 24px;max-width:var(--wrap);margin:0 auto;justify-content:center;text-align:center;
+}
+.alarm-num{
+  font-family:var(--disp);font-weight:900;font-size:clamp(2.6rem,6vw,4.1rem);
+  line-height:1;letter-spacing:-.04em;
+}
+.alarm-txt{font-size:1.05rem;line-height:1.5;max-width:640px;text-align:left;font-weight:500}
+.alarm-txt strong{font-weight:800}
+.alarm-txt small{display:block;font-family:var(--mono);font-size:.7rem;opacity:.8;margin-top:6px;letter-spacing:.04em}
+
+/* ---------- CARDS ---------- */
+.grid{display:grid;gap:24px}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:30px;box-shadow:var(--shadow);
+}
+.sec-cream .card,.sec-sand .card{background:#fff}
+.card h3{margin-bottom:12px}
+.card p:last-child{margin-bottom:0}
+.card-dark{background:var(--char-2);border-color:rgba(255,255,255,.1)}
+.card-dark h3,.card-dark h4{color:#fff}
+.card-dark p{color:#C6BDB5}
+
+/* numbered steps */
+.step{display:flex;gap:22px;align-items:flex-start;padding:26px 0;border-bottom:1px solid var(--line)}
+.step:last-child{border-bottom:none}
+.step-n{
+  flex-shrink:0;width:52px;height:52px;border-radius:12px;background:var(--char);
+  color:var(--butter);font-family:var(--disp);font-weight:900;font-size:1.3rem;
+  display:flex;align-items:center;justify-content:center;
+}
+.step-b h3{margin-bottom:8px;font-size:1.28rem}
+.step-b p:last-child{margin-bottom:0}
+/* step tag */
+.step-tag{
+  display:inline-block;font-family:var(--mono);font-size:.68rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px;
+  background:var(--sand);color:var(--ember-txt);margin-bottom:10px;
+}
+.step-tag.free{background:#E2F1EB;color:var(--pine)}
+
+/* stat table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:#fff}
+table.stats{width:100%;border-collapse:collapse;font-size:.95rem;min-width:640px}
+table.stats th,table.stats td{padding:15px 18px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+table.stats th{
+  background:var(--char);color:#fff;font-family:var(--disp);font-weight:800;
+  font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;
+}
+table.stats tr:last-child td{border-bottom:none}
+table.stats td:first-child{font-family:var(--mono);font-weight:700;color:var(--ember-txt);white-space:nowrap}
+table.stats td.src{font-size:.82rem;color:var(--ash)}
+
+/* answer block for AIO */
+.answer{
+  background:var(--sand);border-left:5px solid var(--ember);
+  border-radius:0 var(--r) var(--r) 0;padding:24px 28px;margin:0 0 26px;
+}
+.answer p{margin:0;font-size:1.06rem;line-height:1.64}
+.answer p+p{margin-top:14px}
+.sec-dark .answer{background:var(--char-2);border-left-color:var(--butter)}
+
+/* callout */
+.callout{
+  background:#fff;border:2px solid var(--char);border-radius:var(--r);
+  padding:30px;box-shadow:6px 6px 0 var(--butter);
+}
+.callout h3{margin-bottom:10px}
+.callout p:last-child{margin-bottom:0}
+
+/* pills */
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 24px;padding:0;list-style:none}
+.pills li{
+  font-family:var(--mono);font-size:.78rem;font-weight:600;padding:8px 15px;
+  border-radius:22px;background:#fff;border:1px solid var(--line);color:var(--ash);
+}
+.sec-dark .pills li{background:var(--char-2);border-color:rgba(255,255,255,.13);color:#C6BDB5}
+
+/* checklist */
+.check{list-style:none;padding:0;margin:0 0 24px}
+.check li{position:relative;padding:0 0 14px 34px;line-height:1.6}
+.check li::before{
+  content:"";position:absolute;left:0;top:7px;width:19px;height:19px;border-radius:5px;
+  background:var(--pine);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M20 6L9 17l-5-5' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/15px no-repeat,linear-gradient(#000,#000);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+.check.x li::before{
+  background:var(--ember);
+  -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M18 6L6 18M6 6l12 12' fill='none' stroke='black' stroke-width='3.4' stroke-linecap='round'/></svg>") center/15px no-repeat,linear-gradient(#000,#000);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+}
+
+/* FAQ */
+.faq{border-top:1px solid var(--line)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;padding:22px 44px 22px 0;position:relative;
+  font-family:var(--disp);font-weight:800;font-size:1.1rem;line-height:1.36;color:var(--char);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:8px;top:27px;width:13px;height:13px;
+  border-right:2.5px solid var(--ember);border-bottom:2.5px solid var(--ember);
+  transform:rotate(45deg);transition:transform .22s ease;
+}
+.faq details[open] summary::after{transform:rotate(-135deg);top:31px}
+.faq .faq-a{padding:0 20px 24px 0}
+.faq .faq-a p:last-child{margin-bottom:0}
+
+/* form */
+.form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px;box-shadow:var(--shadow-lg)}
+.fld{margin-bottom:18px}
+.fld label{
+  display:block;font-family:var(--disp);font-weight:700;font-size:.9rem;
+  margin-bottom:7px;color:var(--char);
+}
+.fld input,.fld select,.fld textarea{
+  width:100%;padding:13px 15px;border:1.5px solid var(--line);border-radius:9px;
+  font-family:var(--body);font-size:1rem;background:#fff;color:var(--char);
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--ember);outline:none}
+.fld textarea{min-height:110px;resize:vertical}
+.hp{position:absolute!important;left:-9999px!important;opacity:0!important;height:0!important;width:0!important}
+.form-msg{margin-top:14px;font-size:.94rem;font-weight:600;display:none}
+.form-msg.ok{display:block;color:var(--pine)}
+.form-msg.err{display:block;color:var(--ember-txt)}
+.form-note{font-size:.82rem;color:var(--ash);margin:12px 0 0}
+
+/* ad units */
+.adbox{
+  border:2px dashed var(--line);border-radius:var(--r);padding:26px;background:#fff;
+  display:flex;gap:22px;align-items:center;flex-wrap:wrap;
+}
+.adbox .ad-b{flex:1;min-width:250px}
+.adbox h4{margin-bottom:7px;font-size:1.16rem}
+.adbox p{margin:0 0 14px;font-size:.95rem;color:var(--ash)}
+.ad-label{
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--ash);display:block;margin-bottom:9px;
+}
+.ad-banner{
+  background:linear-gradient(105deg,var(--char) 0%,var(--char-2) 55%,#3A2E26 100%);
+  color:#fff;border-radius:var(--r);padding:34px;display:flex;gap:26px;
+  align-items:center;justify-content:space-between;flex-wrap:wrap;
+  border:1px solid rgba(255,255,255,.08);
+}
+.ad-banner h3{color:#fff;margin-bottom:8px}
+.ad-banner p{color:#C6BDB5;margin:0;max-width:560px}
+.ad-banner .ad-b{flex:1;min-width:280px}
+
+/* network grid */
+.net{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.net a{
+  display:block;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:22px;text-decoration:none;transition:transform .18s,box-shadow .18s,border-color .18s;
+}
+.net a:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--ember);text-decoration:none}
+.net .net-u{
+  font-family:var(--mono);font-size:.82rem;font-weight:700;color:var(--ember-txt);
+  display:block;margin-bottom:7px;word-break:break-word;
+}
+.net .net-d{font-size:.92rem;color:var(--ash);line-height:1.55;display:block}
+
+/* tools */
+.tool{
+  background:#fff;border:2px solid var(--char);border-radius:var(--r);
+  overflow:hidden;box-shadow:var(--shadow-lg);
+}
+.tool-hd{background:var(--char);color:#fff;padding:22px 28px}
+.tool-hd h3{color:#fff;margin:0 0 5px;font-size:1.4rem}
+.tool-hd p{margin:0;color:#B5ABA3;font-size:.92rem}
+.tool-bd{padding:28px}
+.tool-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:18px;margin-bottom:22px}
+.tool-out{
+  background:var(--char);color:#fff;border-radius:12px;padding:26px;text-align:center;margin-top:22px;
+}
+.tool-out .big{
+  font-family:var(--disp);font-weight:900;font-size:clamp(2.3rem,7vw,3.6rem);
+  line-height:1;letter-spacing:-.04em;color:var(--butter);display:block;margin-bottom:10px;
+}
+.tool-out .lbl{font-family:var(--mono);font-size:.76rem;letter-spacing:.11em;text-transform:uppercase;color:#A79D95}
+.tool-out .sub{margin:16px 0 0;color:#D2C9C1;font-size:.98rem}
+.rng-val{font-family:var(--mono);font-weight:700;color:var(--ember-txt);float:right}
+
+/* scorecard */
+.q{border-bottom:1px solid var(--line);padding:17px 0;display:flex;gap:16px;align-items:flex-start;justify-content:space-between}
+.q:last-of-type{border-bottom:none}
+.q-t{flex:1;font-size:1rem;line-height:1.5;font-weight:500}
+.q-t small{display:block;color:var(--ash);font-size:.84rem;font-weight:400;margin-top:3px}
+.yn{display:flex;gap:7px;flex-shrink:0}
+.yn button{
+  font-family:var(--disp);font-weight:800;font-size:.82rem;padding:8px 15px;
+  border-radius:8px;border:1.5px solid var(--line);background:#fff;color:var(--ash);cursor:pointer;transition:.15s;
+}
+.yn button[aria-pressed="true"]{background:var(--char);border-color:var(--char);color:#fff}
+.yn button.no[aria-pressed="true"]{background:var(--ember);border-color:var(--ember)}
+.grade{
+  font-family:var(--disp);font-weight:900;font-size:5rem;line-height:1;color:var(--butter);display:block;
+}
+
+/* floor plan signature */
+.floor-sec{background:var(--char);color:#fff;padding:84px 0;overflow:hidden}
+.floor-grid{display:grid;grid-template-columns:.86fr 1.14fr;gap:52px;align-items:center}
+.floor-stage{
+  background:var(--char-2);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);padding:26px;position:relative;
+}
+.floor-counter{
+  display:flex;align-items:baseline;gap:12px;margin-bottom:18px;
+  padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.11);
+}
+.floor-counter .cn{
+  font-family:var(--disp);font-weight:900;font-size:3.1rem;line-height:1;
+  color:var(--butter);letter-spacing:-.04em;min-width:110px;
+}
+.floor-counter .cl{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:#9C918A}
+.floor-svg{width:100%;height:auto;display:block}
+.seat{fill:#4A3F38;transition:fill .45s ease}
+.seat.on{fill:var(--ember)}
+.tabletop{fill:#33291F;stroke:#4A3F38;stroke-width:1.5}
+.tabletop.on{fill:#5A3A22;stroke:var(--ember)}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* ---------- FOOTER : WHITE ---------- */
+.ftr{background:var(--white);border-top:1px solid var(--line);padding:62px 0 30px;color:var(--ash)}
+.ftr-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
+.ftr-logo{width:300px;height:76px;object-fit:contain;object-position:left center;max-width:100%;margin-bottom:16px}
+.ftr p{font-size:.94rem;line-height:1.65;color:var(--ash)}
+.ftr h4{
+  font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--char);margin-bottom:16px;
+}
+.ftr ul{list-style:none;padding:0;margin:0}
+.ftr li{margin-bottom:11px}
+.ftr li a{color:var(--ash);font-size:.94rem;text-decoration:none}
+.ftr li a:hover{color:var(--ember-txt);text-decoration:underline}
+.ftr-btm{
+  border-top:1px solid var(--line);padding-top:24px;display:flex;
+  justify-content:space-between;gap:18px;flex-wrap:wrap;
+  font-size:.86rem;color:var(--ash);
+}
+.ftr-btm a{color:var(--ash)}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1100px){
+  .brand-logo{width:250px;height:64px}
+  .nav{gap:20px}
+  .nav a{font-size:.88rem}
+  .hdr-tel{display:none}
+}
+@media(max-width:960px){
+  .hero-in{grid-template-columns:1fr;gap:38px}
+  .floor-grid{grid-template-columns:1fr;gap:34px}
+  .g4{grid-template-columns:repeat(2,1fr)}
+  .ftr-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+@media(max-width:768px){
+  body{font-size:17px}
+  section{padding:60px 0}
+  .nav{display:none}
+  .hdr-right{display:none}
+  .burger{display:flex}
+  .brand-logo{width:230px;height:60px}
+  .g2,.g3,.g4{grid-template-columns:1fr}
+  .alarm-txt{text-align:center}
+  .alarm-in{flex-direction:column;gap:12px}
+  .step{gap:15px}
+  .step-n{width:44px;height:44px;font-size:1.1rem}
+  .card,.tool-bd,.form-card{padding:24px}
+  .q{flex-direction:column;gap:12px}
+  .ftr-logo{width:250px;height:64px}
+}
+@media(max-width:430px){
+  .brand-logo{width:196px;height:52px}
+  .ftr-grid{grid-template-columns:1fr}
+  .wrap{padding:0 18px}
+  .btn{width:100%;padding:15px 18px}
+  .hero-cta{flex-direction:column}
+}
+</style>
+
+<style>
+code{font-family:var(--mono);font-size:.9em;background:var(--sand);padding:2px 6px;
+  border-radius:4px;color:var(--ember-txt)}
+.sec-dark code{background:rgba(255,255,255,.1);color:var(--butter)}
+.tap-stage{background:var(--char-2);border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r);padding:20px}
+.tap-svg{width:100%;height:auto;display:block}
+.ripple{fill:none;stroke:#F5B93D;stroke-width:2.5;opacity:0}
+.tap-live .ripple{animation:rip 2.4s ease-out infinite}
+.tap-live .r2{animation-delay:.35s}
+.tap-live .r3{animation-delay:.7s}
+@keyframes rip{0%{r:20px;opacity:.85}100%{r:62px;opacity:0}}
+.phone{transform:translateY(46px);opacity:.35;
+  transition:transform 1s cubic-bezier(.22,1,.36,1),opacity .7s ease}
+.tap-open .phone{transform:translateY(0);opacity:1}
+.menu-lines rect{opacity:0;transition:opacity .45s ease}
+.tap-open .menu-lines rect{opacity:1}
+.tap-open .menu-lines rect:nth-child(n+2){transition-delay:.3s}
+.dest{opacity:0;transform:translateX(18px);
+  transition:opacity .6s ease,transform .6s ease}
+.tap-flow .d1{opacity:1;transform:none;transition-delay:.1s}
+.tap-flow .d2{opacity:1;transform:none;transition-delay:.45s}
+.tap-flow .d3{opacity:1;transform:none;transition-delay:.8s}
+.flow{opacity:0;stroke-dashoffset:120;transition:opacity .5s ease}
+.tap-flow .flow{opacity:.85;animation:dash 1.1s linear infinite}
+.tap-flow .f2{animation-delay:.35s}
+.tap-flow .f3{animation-delay:.7s}
+@keyframes dash{to{stroke-dashoffset:0}}
+@media (prefers-reduced-motion:reduce){
+  .tap-live .ripple{animation:none;opacity:.4}
+  .tap-flow .flow{animation:none}
+}
+</style>
+
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="hdr-in">
+    <a href="/" class="brand" aria-label="RestaurantsAdvertising.com home">
+      <img src="/images/restaurants-advertising-logo.png" alt="RestaurantsAdvertising.com logo" class="brand-logo" width="300" height="76" fetchpriority="high">
+    </a>
+    <nav class="nav" aria-label="Main">
+      <a href="/">Home</a>
+      <a href="/seo-for-restaurants/">Restaurant SEO</a>
+      <a href="/nfc-menu-restaurants/" aria-current="page">NFC Menus</a>
+      <a href="/marketing-for-restaurants/">Marketing</a>
+    </nav>
+    <div class="hdr-right">
+      <a href="#scorecard" class="btn btn-p btn-sm">Free Scorecard</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobnav">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+<nav class="mobnav" id="mobnav" aria-label="Mobile">
+  <a href="/">Home</a>
+  <a href="/seo-for-restaurants/">Restaurant SEO &amp; AI Search</a>
+  <a href="/nfc-menu-restaurants/" aria-current="page">NFC Menus</a>
+  <a href="/marketing-for-restaurants/">Restaurant Marketing</a>
+  <a href="#scorecard" class="btn btn-p">Get Your Free Scorecard</a>
+</nav>
+<main id="main">
+
+<section class="hero" style="padding-bottom:74px">
+  <div class="wrap">
+    <div class="hero-in">
+      <div>
+        <span class="eyebrow on-dark">NFC Menus for Restaurants</span>
+        <h1>One tap for your guest.<em>A findable page for everyone else.</em></h1>
+        <p class="lede">A QR code opens a PDF that nobody but the person at the table can read. An NFC menu built properly opens instantly at the table <em>and</em> becomes a page Google and AI assistants can read, quote and recommend. Same tap. Completely different asset.</p>
+        <div class="hero-cta">
+          <a href="#calculator" class="btn btn-p">What Delivery Apps Cost You</a>
+          <a href="#difference" class="btn btn-o on-dark">Why PDFs fail</a>
+        </div>
+        <div class="hero-trust">
+          <span>Built on LinkRestaurants</span>
+          <span>No app for guests</span>
+          <span>Update prices instantly</span>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="/images/nfc-menu-restaurants.jpg" alt="Restaurant guests tapping a phone on an NFC menu tag at the table" width="1000" height="800" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIGNATURE : TAP RIPPLE ===== -->
+<section class="sec-dark" id="tap-demo" style="padding-top:70px;padding-bottom:70px">
+  <div class="wrap">
+    <div class="grid g2" style="gap:48px;align-items:center">
+      <div>
+        <span class="eyebrow on-dark">The whole idea, in one motion</span>
+        <h2>The tap does two jobs at once</h2>
+        <p class="lede">Your guest gets the menu in under a second, with no camera, no focusing, no app and no pinching.</p>
+        <p>At the same moment, that menu exists as a real web page — every dish in readable text, every price marked up as data, the whole thing crawlable. So while the guest is deciding between the short rib and the branzino, Google is indexing both dishes and an AI assistant somewhere is learning that you serve them.</p>
+        <p style="margin-bottom:0">A PDF cannot do the second job. That is the entire argument on this page, and everything below is the detail underneath it.</p>
+      </div>
+      <div>
+        <div class="tap-stage" id="tapStage">
+          <svg viewBox="0 0 460 400" class="tap-svg" role="img" aria-label="Animation of a phone tapping an NFC menu tag, opening a menu that is then read by Google, AI assistants and Maps">
+            <circle class="ripple r1" cx="150" cy="252" r="26"/>
+            <circle class="ripple r2" cx="150" cy="252" r="26"/>
+            <circle class="ripple r3" cx="150" cy="252" r="26"/>
+            <rect x="104" y="228" width="92" height="58" rx="7" fill="#2C231C" stroke="#4A3F38" stroke-width="2"/>
+            <circle cx="150" cy="252" r="13" fill="none" stroke="#F5B93D" stroke-width="2"/>
+            <path d="M143 252a7 7 0 0114 0M138 252a12 12 0 0124 0" fill="none" stroke="#F5B93D" stroke-width="2" stroke-linecap="round"/>
+            <text x="150" y="277" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="9" fill="#9C918A">TAP HERE</text>
+            <g class="phone" id="tapPhone">
+              <rect x="112" y="66" width="76" height="140" rx="12" fill="#1A1512" stroke="#6A5D53" stroke-width="2.5"/>
+              <rect x="118" y="76" width="64" height="120" rx="5" fill="#FBF7F2"/>
+              <g class="menu-lines" id="menuLines">
+                <rect x="124" y="83" width="36" height="5" rx="2" fill="#AD3A0B"/>
+                <rect x="124" y="95" width="52" height="3" rx="1.5" fill="#8A817A"/>
+                <rect x="124" y="102" width="44" height="3" rx="1.5" fill="#C9C0B8"/>
+                <rect x="124" y="113" width="52" height="3" rx="1.5" fill="#8A817A"/>
+                <rect x="124" y="120" width="40" height="3" rx="1.5" fill="#C9C0B8"/>
+                <rect x="124" y="131" width="52" height="3" rx="1.5" fill="#8A817A"/>
+                <rect x="124" y="138" width="46" height="3" rx="1.5" fill="#C9C0B8"/>
+                <rect x="124" y="149" width="52" height="3" rx="1.5" fill="#8A817A"/>
+                <rect x="124" y="156" width="38" height="3" rx="1.5" fill="#C9C0B8"/>
+                <rect x="124" y="167" width="52" height="3" rx="1.5" fill="#8A817A"/>
+                <rect x="124" y="174" width="43" height="3" rx="1.5" fill="#C9C0B8"/>
+              </g>
+            </g>
+            <g class="dests" id="dests">
+              <g class="dest d1">
+                <rect x="286" y="70" width="150" height="44" rx="9" fill="#241E1A" stroke="#4A3F38" stroke-width="1.5"/>
+                <circle cx="308" cy="92" r="9" fill="#E8541F"/>
+                <text x="326" y="90" font-family="Public Sans,sans-serif" font-size="12" font-weight="700" fill="#fff">Google Search</text>
+                <text x="326" y="103" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#9C918A">reads every dish</text>
+              </g>
+              <g class="dest d2">
+                <rect x="286" y="130" width="150" height="44" rx="9" fill="#241E1A" stroke="#4A3F38" stroke-width="1.5"/>
+                <circle cx="308" cy="152" r="9" fill="#F5B93D"/>
+                <text x="326" y="150" font-family="Public Sans,sans-serif" font-size="12" font-weight="700" fill="#fff">AI assistants</text>
+                <text x="326" y="163" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#9C918A">quotes your prices</text>
+              </g>
+              <g class="dest d3">
+                <rect x="286" y="190" width="150" height="44" rx="9" fill="#241E1A" stroke="#4A3F38" stroke-width="1.5"/>
+                <circle cx="308" cy="212" r="9" fill="#1F6B54"/>
+                <text x="326" y="210" font-family="Public Sans,sans-serif" font-size="12" font-weight="700" fill="#fff">Google Maps</text>
+                <text x="326" y="223" font-family="JetBrains Mono,monospace" font-size="8.5" fill="#9C918A">links your menu</text>
+              </g>
+              <path class="flow f1" d="M196 120 C 240 120, 250 92, 284 92" fill="none" stroke="#E8541F" stroke-width="2" stroke-dasharray="4 4"/>
+              <path class="flow f2" d="M196 136 C 240 136, 250 152, 284 152" fill="none" stroke="#F5B93D" stroke-width="2" stroke-dasharray="4 4"/>
+              <path class="flow f3" d="M196 152 C 240 152, 250 212, 284 212" fill="none" stroke="#1F6B54" stroke-width="2" stroke-dasharray="4 4"/>
+            </g>
+            <text x="230" y="330" text-anchor="middle" font-family="JetBrains Mono,monospace" font-size="11" fill="#9C918A" id="tapCaption">Tap</text>
+            <text x="230" y="352" text-anchor="middle" font-family="Public Sans,sans-serif" font-size="13" fill="#D2C9C1" id="tapCaption2">One motion, two outcomes</text>
+          </svg>
+        </div>
+        <p style="margin:14px 0 0;font-size:.84rem;color:#9C918A;font-family:var(--mono);line-height:1.5">Illustration of how a properly built tap menu works.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUICK ANSWER ===== -->
+<section class="sec-tight">
+  <div class="wrap narrow">
+    <span class="eyebrow">The short version</span>
+    <h2>What is an NFC menu?</h2>
+    <div class="answer">
+      <p><strong>An NFC menu is a restaurant menu that opens when a guest taps their phone against a small tag built into a table tent, card or sticker.</strong> NFC stands for near field communication, the same technology behind tap-to-pay. There is no app to download and no camera to aim. The phone reads the tag from about an inch away and opens a web address instantly. Whether that address leads to a PDF or to a real indexable web page is the difference between a convenience feature and a search asset.</p>
+    </div>
+    <p>Most restaurants that moved to digital menus during and after 2020 landed on a QR code pointing at a PDF. It worked well enough for the immediate problem, which was handing fewer objects to guests.</p>
+    <p style="margin-bottom:0">But it quietly created a bigger one. The menu — the single richest description of what your restaurant actually sells — became invisible to every search engine and every AI assistant on earth.</p>
+  </div>
+</section>
+
+<!-- ===== NFC VS QR ===== -->
+<section class="sec-cream" id="vs">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Honest comparison</span>
+      <h2>NFC menus vs QR code menus</h2>
+      <p class="lede">These are two different questions wearing one label. The first is how the guest gets there. The second is what they arrive at. Only the second one affects whether you get found.</p>
+    </div>
+
+    <div class="tbl-wrap">
+      <table class="stats">
+        <caption class="hp">Comparison of NFC tap menus and QR code menus</caption>
+        <thead><tr><th scope="col">&nbsp;</th><th scope="col">QR code</th><th scope="col">NFC tap</th></tr></thead>
+        <tbody>
+          <tr><td>How it opens</td><td style="font-family:var(--body);font-weight:400;white-space:normal">Open camera, aim, focus, wait, tap the banner that appears</td><td style="font-family:var(--body);font-weight:400;white-space:normal;color:var(--char)">Hold phone near the tag. Opens in about a second.</td></tr>
+          <tr><td>In low light</td><td style="font-family:var(--body);font-weight:400;white-space:normal">Difficult. Dim dining rooms are the common failure case.</td><td style="font-family:var(--body);font-weight:400;white-space:normal;color:var(--char)">Unaffected. No camera involved.</td></tr>
+          <tr><td>Device support</td><td style="font-family:var(--body);font-weight:400;white-space:normal">Essentially universal</td><td style="font-family:var(--body);font-weight:400;white-space:normal;color:var(--char)">Nearly all phones sold in the last several years. Older devices need the QR fallback.</td></tr>
+          <tr><td>Guest familiarity</td><td style="font-family:var(--body);font-weight:400;white-space:normal">Very high</td><td style="font-family:var(--body);font-weight:400;white-space:normal;color:var(--char)">High and rising, since tap-to-pay taught the gesture.</td></tr>
+          <tr><td>Cost per table</td><td style="font-family:var(--body);font-weight:400;white-space:normal">Effectively free to print</td><td style="font-family:var(--body);font-weight:400;white-space:normal;color:var(--char)">Small per-tag cost</td></tr>
+          <tr><td>Searchable by Google</td><td style="font-family:var(--body);font-weight:400;white-space:normal">Only if the destination is a real page. A PDF is not.</td><td style="font-family:var(--body);font-weight:400;white-space:normal;color:var(--char)">Only if the destination is a real page. Same rule.</td></tr>
+          <tr><td>Readable by AI</td><td style="font-family:var(--body);font-weight:400;white-space:normal">Same. Depends entirely on the destination.</td><td style="font-family:var(--body);font-weight:400;white-space:normal;color:var(--char)">Same. Depends entirely on the destination.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout" style="margin-top:32px">
+      <h3>The part most vendors will not tell you</h3>
+      <p>NFC versus QR is a <strong>guest experience</strong> decision. It is not a search decision. Swapping a QR code for an NFC tag while still pointing at the same PDF changes nothing about whether you get found. The tap is smoother and guests appreciate it, but the visibility problem is completely untouched.</p>
+      <p style="margin-bottom:0">The decision that actually matters is what sits at the other end of the link. We build both — tap and scan together, on the same card — because the fallback costs nothing and some guests still prefer the camera.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE REAL DIFFERENCE ===== -->
+<section id="difference">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The focal point</span>
+      <h2>Why a PDF menu makes your restaurant invisible</h2>
+      <p class="lede">Your menu is the most detailed, most specific, most commercially useful description of your restaurant that exists. Locking it in a PDF throws all of that away.</p>
+    </div>
+
+    <div class="answer">
+      <p><strong>Can Google read a PDF menu?</strong></p>
+      <p>Poorly, and often not at all. Google can sometimes extract raw text from a PDF, but it cannot understand the structure — which line is a dish, which number is a price, which heading is a section. A photographed or designed menu is worse, because the words are pixels rather than text and there is nothing to extract. AI assistants face the same wall. They cannot tell someone you serve gluten-free gnocchi at $22 if that fact exists only as an image.</p>
+    </div>
+
+    <div class="grid g2" style="gap:44px;margin-top:38px;align-items:start">
+      <div>
+        <h3>Count the phrases you are giving up</h3>
+        <p>A restaurant with forty menu items is sitting on forty specific things people search for. Not "Italian restaurant" — that is one crowded phrase. Forty distinct phrases like <em>cacio e pepe near me</em>, <em>wood fired margherita denver</em>, <em>house made burrata</em>, each with a person attached who already knows exactly what they want to eat.</p>
+        <p>Dish-level searches carry the highest intent in the entire restaurant category. Somebody searching for a specific dish is usually minutes from a decision and frequently already in the car.</p>
+        <p style="margin-bottom:0">With a text menu you have forty chances to be the answer. With a PDF you have zero, and your competitor down the street with a plain HTML menu wins every single one of them.</p>
+      </div>
+      <div>
+        <div class="card">
+          <h3>What a machine sees</h3>
+          <div style="margin-bottom:22px">
+            <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ash);margin-bottom:8px">Your PDF menu</div>
+            <div style="background:var(--sand);border-radius:9px;padding:18px;font-family:var(--mono);font-size:.86rem;color:var(--ash)">[ image file ]<br>&mdash; no readable dishes<br>&mdash; no readable prices<br>&mdash; no structure</div>
+          </div>
+          <div>
+            <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ash);margin-bottom:8px">A LinkRestaurants menu page</div>
+            <div style="background:#EDF5F1;border:1px solid #C9E0D6;border-radius:9px;padding:18px;font-family:var(--mono);font-size:.82rem;color:var(--char);line-height:1.7">MenuSection: Pasta<br>&nbsp;&nbsp;MenuItem: Cacio e Pepe<br>&nbsp;&nbsp;&nbsp;&nbsp;price: 24.00<br>&nbsp;&nbsp;&nbsp;&nbsp;description: pecorino,<br>&nbsp;&nbsp;&nbsp;&nbsp;black pepper, house<br>&nbsp;&nbsp;&nbsp;&nbsp;tonnarelli<br>&nbsp;&nbsp;&nbsp;&nbsp;suitableForDiet:<br>&nbsp;&nbsp;&nbsp;&nbsp;VegetarianDiet</div>
+          </div>
+          <p style="margin:18px 0 0;font-size:.92rem">Same menu. One is a picture. The other is a set of facts a machine can state out loud with confidence.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="answer" style="margin-top:38px">
+      <p><strong>The compounding part:</strong> once your dishes exist as structured data, they feed everything at once. Google can show your menu in your listing. Voice assistants can answer questions about your prices. AI models can recommend you for a specific craving. And it all runs off one page you update when the menu changes — which you were going to do anyway.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMMISSION CALCULATOR ===== -->
+<section class="sec-sand" id="calculator">
+  <div class="wrap">
+    <div class="sec-head ctr">
+      <span class="eyebrow">Free tool</span>
+      <h2>Delivery Commission Bleed Calculator</h2>
+      <p class="lede">Third-party delivery commissions run 15% to 30% per order, and the effective cost commonly reaches 30% to 40% once promotions, processing and refunds are counted. Against a typical independent net margin of 3% to 5%, that math is worth seeing written down. Runs entirely in your browser.</p>
+    </div>
+
+    <div class="tool" style="max-width:880px;margin:0 auto">
+      <div class="tool-hd">
+        <h3>What are the apps costing you?</h3>
+        <p>And what moving a share of it in-house would be worth.</p>
+      </div>
+      <div class="tool-bd">
+        <div class="tool-row">
+          <div class="fld" style="margin:0">
+            <label for="cOrders">Delivery orders per week</label>
+            <input type="number" id="cOrders" value="120" min="0" max="10000" inputmode="numeric">
+          </div>
+          <div class="fld" style="margin:0">
+            <label for="cTicket">Average delivery ticket ($)</label>
+            <input type="number" id="cTicket" value="42" min="1" max="1000" inputmode="decimal">
+          </div>
+          <div class="fld" style="margin:0">
+            <label for="cMargin">Your net margin (%)</label>
+            <input type="number" id="cMargin" value="4" min="1" max="40" inputmode="decimal">
+          </div>
+        </div>
+        <div class="fld">
+          <label for="cRate">Commission rate <span class="rng-val" id="cRateOut">25%</span></label>
+          <input type="range" id="cRate" min="10" max="40" value="25" step="1" style="padding:0">
+        </div>
+        <div class="fld">
+          <label for="cShift">If you moved this share to direct ordering <span class="rng-val" id="cShiftOut">25%</span></label>
+          <input type="range" id="cShift" min="0" max="80" value="25" step="5" style="padding:0">
+        </div>
+
+        <div class="tool-out">
+          <span class="lbl">Paid to delivery platforms, per year</span>
+          <span class="big" id="cBleed">$0</span>
+          <p class="sub" id="cSub"></p>
+        </div>
+
+        <div class="grid g2" style="margin-top:18px;gap:14px">
+          <div class="card" style="padding:22px;text-align:center">
+            <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ash);margin-bottom:8px">Recovered by shifting orders direct</div>
+            <div style="font-family:var(--disp);font-weight:900;font-size:1.9rem;color:var(--pine)" id="cSaved">$0</div>
+            <div style="font-size:.85rem;color:var(--ash);margin-top:6px">per year</div>
+          </div>
+          <div class="card" style="padding:22px;text-align:center">
+            <div style="font-family:var(--mono);font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--ash);margin-bottom:8px">Equivalent dine-in revenue needed to match it</div>
+            <div style="font-family:var(--disp);font-weight:900;font-size:1.9rem;color:var(--ember-txt)" id="cEquiv">$0</div>
+            <div style="font-size:.85rem;color:var(--ash);margin-top:6px">at your stated margin</div>
+          </div>
+        </div>
+
+        <p class="form-note">Estimate only, from the figures you entered. Actual platform costs vary by contract, tier, city and promotion. This is a planning tool, not financial advice or a projection of results.</p>
+      </div>
+    </div>
+
+    <div class="narrow" style="margin-top:40px">
+      <div class="callout">
+        <h3>Read that last box again</h3>
+        <p>The right-hand number is the one that surprises operators. At a 4% net margin, recovering a dollar of commission is worth the same as roughly twenty-five dollars of new dine-in revenue. Commission you stop paying drops straight to the bottom line, while revenue you add has to carry food cost, labor and overhead first.</p>
+        <p style="margin-bottom:0">That is why owning your own ordering channel is not a marketing project. It is a margin project.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OPERATIONAL WINS ===== -->
+<section id="operations">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Day to day</span>
+      <h2>What changes in the dining room</h2>
+      <p class="lede">The search argument is the big one, but the operational wins are what your managers will actually notice in week one.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>86 an item in ten seconds</h3>
+        <p>The salmon is gone at 7:15. You mark it unavailable once and every table in the room sees it immediately. No more servers apologizing forty times, and no more guests deciding on something they cannot have.</p>
+      </div>
+      <div class="card">
+        <h3>Change prices without reprinting</h3>
+        <p>Food costs move constantly. With printed menus a price change means a print run, a delay, and a stack of obsolete paper. With a live menu it means editing one field.</p>
+      </div>
+      <div class="card">
+        <h3>Run specials that actually get seen</h3>
+        <p>A special written on a chalkboard by the host stand reaches whoever glances at it. A special at the top of the menu everyone opens reaches every guest in the building.</p>
+      </div>
+      <div class="card">
+        <h3>Seasonal menus without waste</h3>
+        <p>Swap the whole menu overnight for a holiday service or a seasonal change, then swap it back. No printing cost and no minimum order quantity forcing you into a long run.</p>
+      </div>
+      <div class="card">
+        <h3>Answer dietary questions once</h3>
+        <p>Tag items as vegetarian, vegan, gluten free or containing common allergens, and let guests filter. It reduces a genuinely stressful category of table conversation and it makes you findable for those searches.</p>
+      </div>
+      <div class="card">
+        <h3>No more sticky laminated menus</h3>
+        <p>A small thing that guests notice. Nobody has ever enjoyed being handed a menu with last night's sauce on the corner.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLACEMENT ===== -->
+<section class="sec-cream" id="placement">
+  <div class="wrap">
+    <div class="grid g2" style="gap:48px;align-items:start">
+      <div>
+        <span class="eyebrow">Practical</span>
+        <h2>Where the tags actually go</h2>
+        <p>Placement decides adoption. Tags people cannot find do not get tapped, and tags in the wrong spot get knocked around all night.</p>
+        <ul class="check" style="margin-top:24px">
+          <li><strong>Table tents.</strong> The standard. Weighted base, tag inside, QR printed on the reverse as fallback.</li>
+          <li><strong>Under-table or table-edge stickers.</strong> Discreet, cannot be knocked over, and nothing to store between services.</li>
+          <li><strong>Host stand and waiting area.</strong> People waiting for a table will read a menu given the chance, and it primes the order.</li>
+          <li><strong>Window or front door.</strong> The highest-value placement almost nobody uses. Passersby deciding whether to come in can read the whole menu without opening the door.</li>
+          <li><strong>Bar rail.</strong> Cocktail and bar-food menus separate from the dining room menu.</li>
+          <li><strong>Takeout counter and delivery bags.</strong> This is how you convert an app customer into a direct one over time.</li>
+          <li><strong>Business cards for the owner.</strong> Hand someone your entire menu at a chamber event.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Two small things that matter</h3>
+          <p><strong>Tell people it is there.</strong> Print "tap or scan" on the card. The gesture is familiar from tap-to-pay, but guests will not try it if nothing indicates the option exists.</p>
+          <p><strong>Always keep some paper.</strong> Not every guest wants a phone menu, and some cannot use one. Keeping a small stack of printed menus behind the host stand costs almost nothing and removes the one real objection to going digital.</p>
+          <p style="margin-bottom:0">The goal is never to force the phone. It is to make the fast path available and to make sure the menu behind it does a second job while nobody is looking.</p>
+        </div>
+        <div class="card" style="margin-top:20px">
+          <h3>Accessibility is not optional</h3>
+          <p style="margin-bottom:0">A real HTML menu is dramatically more accessible than a PDF. Screen readers can read it, text can be enlarged without pinching, and contrast adapts to the guest's own settings. A PDF of a designed menu fails all three. This is a genuine reason to make the switch that rarely gets mentioned.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FIRST PARTY ORDERING ===== -->
+<section id="direct-ordering">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The margin argument</span>
+      <h2>From table menu to owning your customers</h2>
+      <p class="lede">The menu page is the first step of a longer move: getting out from under marketplace commissions and holding onto the guest relationship yourself.</p>
+    </div>
+
+    <div class="answer">
+      <p><strong>What is first-party ordering, and why does it matter?</strong></p>
+      <p>First-party ordering means orders that come through your own website or menu page rather than a delivery marketplace. The difference is not only the commission you avoid. It is that you keep the customer's name, email and order history, which the marketplace never gives you. A restaurant with two thousand marketplace orders a month has no customer list. A restaurant with two hundred direct orders has two hundred people it can reach again for free.</p>
+    </div>
+
+    <div class="grid g2" style="gap:44px;margin-top:36px;align-items:start">
+      <div>
+        <h3>What you lose on a marketplace order</h3>
+        <ul class="check x">
+          <li><strong>Margin.</strong> 15% to 30% published, commonly 30% to 40% effective once promotions, processing and refunds are counted.</li>
+          <li><strong>The customer.</strong> No name, no email, no order history. You cannot invite them back.</li>
+          <li><strong>Price integrity.</strong> Many restaurants inflate marketplace prices to offset commission, which trains guests that you are expensive.</li>
+          <li><strong>Brand control.</strong> Competitor ads appear alongside your listing inside the app.</li>
+          <li><strong>The complaint.</strong> When a driver is late, the one-star review lands on you.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>The markup trap</h3>
+        <p>Most operators try to solve commission by raising marketplace prices. The arithmetic does not work the way people assume, because <strong>the commission is charged on the new higher price too.</strong></p>
+        <p>To actually match your dining-room margin, the required markup is the commission divided by one minus the commission. At 15% commission that is roughly a 17.6% markup. At 25% it is 33.3%. At 30% commission you need a <strong>42.9%</strong> price increase, not 30%.</p>
+        <p style="margin-bottom:0">Marking up is damage control. It makes a bad-margin channel less bad. It does not change the fact that you are renting access to your own customers.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:34px">
+      <h3>The pattern that works</h3>
+      <p>Use the marketplaces for what they are genuinely good at, which is discovery. Then convert repeat customers to your direct channel over time: an insert in the bag with a tap tag, a better price than the app, a loyalty offer, a card at the takeout counter. You are not trying to leave the apps overnight. You are trying to stop paying 30% on the same customer for the fortieth time.</p>
+      <p style="margin-bottom:0">Your menu page is where that conversion happens, which is why it needs to be genuinely good rather than merely functional.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DIETARY ===== -->
+<section class="sec-cream" id="dietary">
+  <div class="wrap">
+    <div class="grid g2" style="gap:48px;align-items:start">
+      <div>
+        <span class="eyebrow">Quietly one of the biggest wins</span>
+        <h2>Dietary tags do more than you would expect</h2>
+        <p>Marking items as vegetarian, vegan, gluten free, dairy free or containing common allergens takes an afternoon and pays back in three separate ways.</p>
+        <p><strong>In the dining room,</strong> it removes one of the most stressful exchanges in service. A guest with celiac disease currently has to interrogate a server who may or may not know the answer, in front of a table waiting to order. A filterable menu answers it privately in ten seconds and the guest relaxes.</p>
+        <p><strong>In search,</strong> "gluten free" plus your city is a high-intent phrase with far less competition than your cuisine plus your city. The person searching it has a hard requirement, limited options, and usually brings a table of three or four people with them.</p>
+        <p style="margin-bottom:0"><strong>In AI answers,</strong> dietary constraints appear constantly in conversational queries. "Somewhere my vegan sister can actually eat" is a real question people ask assistants. If those words are not attached to your dishes as data, you cannot be the answer.</p>
+      </div>
+      <div>
+        <div class="card">
+          <h3>Worth tagging</h3>
+          <ul class="check" style="margin-bottom:0">
+            <li>Vegetarian and vegan</li>
+            <li>Gluten free, and separately, made without gluten in a shared kitchen</li>
+            <li>Dairy free</li>
+            <li>Nut allergens</li>
+            <li>Shellfish</li>
+            <li>Spice level</li>
+            <li>Kid-friendly items</li>
+            <li>Available for takeout or delivery</li>
+          </ul>
+        </div>
+        <div class="card" style="margin-top:20px">
+          <h3>One honesty note</h3>
+          <p style="margin-bottom:0">Distinguish between "gluten free" and "made without gluten ingredients in a kitchen that also handles gluten." These are different claims with genuinely different stakes for someone with celiac disease. Overstating it is a real safety issue and a real liability issue. Say precisely what is true.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MEASURING ===== -->
+<section id="measuring">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Know if it worked</span>
+      <h2>What to watch after you launch</h2>
+      <p class="lede">A menu page produces data a paper menu never could. Here is what is worth reading and what it tells you.</p>
+    </div>
+
+    <div class="grid g3">
+      <div class="card">
+        <h3>Menu views per service</h3>
+        <p>Tells you adoption. If views are far below your cover count, the tags are placed badly or the floor is not mentioning them. This is usually a briefing problem, not a technology problem.</p>
+      </div>
+      <div class="card">
+        <h3>Most-viewed items</h3>
+        <p>Which dishes people look at hardest before ordering. Sometimes it matches your sales mix and sometimes it exposes a dish people consider and then talk themselves out of, which is a description or price problem worth fixing.</p>
+      </div>
+      <div class="card">
+        <h3>Time on the menu</h3>
+        <p>Very long dwell times can mean the menu is hard to navigate rather than fascinating. Very short ones can mean guests bounced to paper. Both are worth a look at the layout.</p>
+      </div>
+      <div class="card">
+        <h3>Dietary filter usage</h3>
+        <p>Reveals demand you may be underserving. If a meaningful share of guests filter for gluten free every night, that is a menu development signal and a content signal at the same time.</p>
+      </div>
+      <div class="card">
+        <h3>Dish-level search impressions</h3>
+        <p>Once indexed, your Google Search Console will start showing which dish phrases surface your menu. This is the clearest proof the visibility argument on this page is working.</p>
+      </div>
+      <div class="card">
+        <h3>Menu link clicks from Google</h3>
+        <p>Available in your Google Business Profile insights. It tells you how many people looked at your menu before ever arriving, which is a strong leading indicator of covers.</p>
+      </div>
+    </div>
+
+    <div class="answer" style="margin-top:34px">
+      <p><strong>A fair expectation:</strong> the operational benefits show up in week one. The search benefits take longer, because Google needs to crawl and index the page and AI models refresh on their own schedules. Give it two to three months before judging the visibility side, and compare against the same period last year rather than last month, since restaurants are seasonal.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MYTHS ===== -->
+<section class="sec-sand" id="myths">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Worth correcting</span>
+      <h2>Four things people get wrong about digital menus</h2>
+    </div>
+
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-b">
+        <h3>"Digital menus are a pandemic leftover"</h3>
+        <p>The contactless argument was the reason they arrived, and it is genuinely no longer the point. The reasons that hold up are operational and commercial: instant price changes, live availability, dietary filtering, accessibility, and a menu that search engines and AI assistants can actually read. Plenty of restaurants went back to paper because they only ever saw the hygiene argument. They gave up the other five without noticing.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div class="step-b">
+        <h3>"A digital menu means an app"</h3>
+        <p>No app, for you or your guests. A tap opens a web page in the phone's existing browser. Any vendor asking your guests to download something has designed the wrong product, because the download is where you lose most of them and it buys the guest nothing.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div class="step-b">
+        <h3>"We already have QR codes, so we're covered"</h3>
+        <p>This is the most common and most costly misunderstanding on this page. The code is just a doorway. If it opens a PDF, your menu is still invisible to every search engine and AI assistant, and you have all the downsides of a digital menu with none of the visibility upside. What matters is the destination.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">4</div>
+      <div class="step-b">
+        <h3>"Guests hate them"</h3>
+        <p>Some do, and that is worth respecting rather than arguing with. The complaints are almost always about bad implementations: slow pages, pinch-to-zoom PDFs, forced account creation, upsell popups, menus that require signal your dining room does not have. A fast text menu that loads in a second and asks nothing of the guest draws very few complaints. Keep paper available for the people who want it and the objection mostly disappears.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU WRITING ===== -->
+<section class="sec-cream" id="menu-writing">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">The detail nobody covers</span>
+      <h2>How to write dish descriptions machines and guests both understand</h2>
+      <p class="lede">Once your menu is text, the words in it become the thing you are found for. Most menu copy was written to sound good on paper, which is a different job.</p>
+    </div>
+
+    <div class="grid g2" style="gap:44px;align-items:start">
+      <div>
+        <h3>Lead with what it is</h3>
+        <p>Chefs often name a dish poetically and explain it underneath. Machines and hurried guests both need the plain noun first. "Sunset on the Mesa" tells nobody anything. "Green chile smothered pork burrito" tells everybody everything, and it is also the exact phrase people type.</p>
+        <p style="margin-bottom:0">You can keep the poetic name. Just make sure the plain description sits right beneath it in real words.</p>
+
+        <h3 style="margin-top:32px">Use the words guests use</h3>
+        <p>Write "pasta" alongside your specific shape. Write "spicy" as well as the pepper variety. Somebody searching does not know that tonnarelli is pasta, and an AI model matching a request for "something spicy" needs the word spicy to be present.</p>
+        <p style="margin-bottom:0">This is not dumbing down the menu. It is making sure both audiences can find the dish.</p>
+      </div>
+      <div>
+        <h3>Name the ingredients</h3>
+        <p>Ingredient names are search terms. Someone hunting burrata, oxtail, birria, hamachi or nduja is a highly motivated diner with few options, and they will drive across town. Listing the components of a dish costs one line and creates several findable phrases.</p>
+        <p style="margin-bottom:0">It also does the allergy work for you before anyone has to ask.</p>
+
+        <h3 style="margin-top:32px">Say the context out loud</h3>
+        <p>Words like shareable, generous, light, rich, comforting, for the table, half portion available. These are the words inside real conversational queries. "Somewhere warm and comforting tonight" can only match a menu where the word comforting exists.</p>
+        <p style="margin-bottom:0">Same for price context. Publishing prices is what lets you match a request for somewhere good that is not expensive.</p>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:34px">
+      <h3>The test</h3>
+      <p>Read a dish description out loud to someone who has never eaten at your restaurant. If they cannot picture the plate and tell you roughly what is in it, a search engine cannot either. Rewrite until they can.</p>
+      <p style="margin-bottom:0">One caution: write for accuracy, not for keywords. Padding a description with terms your dish does not earn is obvious to guests, damages trust when the plate arrives, and increasingly gets caught by the systems you were trying to please. Describe the food honestly and the search value follows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONCERNS ===== -->
+<section class="sec-dark" id="concerns">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow on-dark">Fair questions</span>
+      <h2>The objections we hear, answered honestly</h2>
+      <p class="lede">Some of these have good answers. One of them we will simply concede.</p>
+    </div>
+
+    <div class="grid g2" style="gap:24px">
+      <div class="card card-dark">
+        <h3>"Do all phones support NFC?"</h3>
+        <p>Nearly all phones sold in recent years read NFC tags natively, without an app, from the lock screen. Older devices and a small number of budget models do not. That is exactly why every card we build carries a QR code on the reverse. Nobody gets stuck.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>"Will older guests know what to do?"</h3>
+        <p>Some will not, and that is fine. Print "tap or scan" on the card, keep printed menus behind the host stand, and let servers offer one without being asked. Adoption climbs on its own because the gesture is the same one people already use to pay.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>"Is it secure? Can a tag be tampered with?"</h3>
+        <p>NFC tags can be locked read-only at programming, which prevents anyone rewriting the destination. We lock every tag we ship. An unlocked tag is a real risk and it is worth asking any vendor directly whether theirs are locked.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>"Does this drain the guest's battery?"</h3>
+        <p>No. The tag itself has no battery and draws no power. The phone's NFC reader uses a negligible amount, and the page it opens is a lightweight menu, not an app.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>"Won't people just look at their phones all dinner?"</h3>
+        <p>This is the concession. Handing guests a reason to pick up the phone is a real cost, and some rooms should weigh it seriously. Our answer is a menu that loads fast, has no ads, no account, no upsell popups and nothing to scroll past — so the phone goes back down in ninety seconds. But if your concept depends on a phone-free room, that is a legitimate reason to stay on paper, and we will tell you so.</p>
+      </div>
+      <div class="card card-dark">
+        <h3>"What if the internet goes down?"</h3>
+        <p>Guests are usually on cellular data rather than your wifi, so a router outage generally does not affect them. For total outages, the printed menus behind the host stand are the answer. This is the same contingency you already need for your POS.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LINKRESTAURANTS ===== -->
+<section id="linkrestaurants">
+  <div class="wrap">
+    <div class="grid g2" style="gap:48px;align-items:center">
+      <div>
+        <span class="eyebrow">Where we build them</span>
+        <h2>LinkRestaurants.com</h2>
+        <p class="lede">Our NFC and QR menu network. Every menu on it is a real, indexable web page — not a PDF, not an image, not a page behind a login.</p>
+        <p>That structure is the point. Each menu carries proper <code>Menu</code>, <code>MenuSection</code> and <code>MenuItem</code> markup, so every dish is a discrete object with a name, a description, a price and dietary properties. Search engines index them. AI assistants can quote them.</p>
+        <p>And because the menus sit on a network rather than in isolation, each one benefits from the others. A guest looking at one restaurant's menu is on a site that also carries local restaurant content, which builds the kind of topical authority a single standalone page struggles to earn alone.</p>
+        <p style="margin-bottom:0">Your menu also stays yours. You get the page, the traffic and the customer. There is no marketplace taking a cut of an order placed from it.</p>
+        <a href="https://linkrestaurants.com/" class="btn btn-p" style="margin-top:12px">See LinkRestaurants</a>
+      </div>
+      <div>
+        <div class="card">
+          <h3>What each menu page includes</h3>
+          <ul class="check" style="margin-bottom:0">
+            <li>Every dish as readable text with its own price.</li>
+            <li>Menu, MenuSection and MenuItem structured data.</li>
+            <li>Dietary tags and guest-facing filters.</li>
+            <li>Your hours, address and phone as structured data.</li>
+            <li>One-tap calling and directions.</li>
+            <li>Instant availability toggles for 86'd items.</li>
+            <li>Mobile-first layout that loads in about a second.</li>
+            <li>Locked NFC tags plus printed QR fallback.</li>
+          </ul>
+        </div>
+        <div class="adbox" style="margin-top:20px">
+          <div class="ad-b">
+            <span class="ad-label">Also in the network</span>
+            <h4>Get listed where people are already looking</h4>
+            <p>A menu page works harder when the restaurant around it is also being found. We place clients on <a href="https://localfoodnearme.com/">LocalFoodNearMe.com</a>, <a href="https://bestrestaurantdenver.com/">BestRestaurantDenver.com</a>, <a href="https://coloradowhatsup.com/">ColoradoWhatsUp.com</a> and <a href="https://denvercoloradothingstodo.com/">DenverColoradoThingsToDo.com</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SETUP ===== -->
+<section class="sec-sand" id="setup">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Start to finish</span>
+      <h2>How to set up NFC menus in your restaurant</h2>
+      <p class="lede">Five steps. Most restaurants are live inside two weeks, and the slow part is almost always waiting on menu copy.</p>
+    </div>
+
+    <div class="step">
+      <div class="step-n">1</div>
+      <div class="step-b">
+        <h3>Get the menu into text</h3>
+        <p>Not a scan. Actual typed text with sections, item names, descriptions and prices. If your menu currently exists only as a designed PDF or a photograph, this is the real work of the project and it is worth doing carefully. Write descriptions the way guests describe dishes, not the way a chef writes a spec.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div class="step-b">
+        <h3>Build the page and mark it up</h3>
+        <p>The menu becomes a mobile-first page with structured data behind every item. Dietary tags get applied. Hours, address and phone are added as structured data so the page can answer questions on its own.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div class="step-b">
+        <h3>Program and lock the tags</h3>
+        <p>Each tag gets written with your menu address and then locked read-only so nobody can change the destination. QR codes get generated for the same address and printed on the reverse of every card.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">4</div>
+      <div class="step-b">
+        <h3>Place them and brief the floor</h3>
+        <p>Tables, host stand, bar, window, takeout counter. Then a five-minute staff briefing: where the tags are, how to explain the tap, and that printed menus are available for anyone who wants one. Server buy-in decides adoption more than anything else.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">5</div>
+      <div class="step-b">
+        <h3>Link it everywhere and let it get indexed</h3>
+        <p>Add the menu link to your Google Business Profile, your website, your Apple listing and your social profiles. This is the step that converts the menu from a table convenience into a search asset, and it is the one most restaurants skip.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MULTI MENU ===== -->
+<section id="multi-menu">
+  <div class="wrap narrow">
+    <span class="eyebrow">Common situation</span>
+    <h2>Multiple menus, multiple rooms</h2>
+    <p>Most restaurants do not have one menu. They have a dinner menu, a lunch menu, a brunch menu on weekends, a bar menu, a happy hour list, a wine list, a kids menu and a seasonal insert. Paper forces you to print all of them and store them somewhere.</p>
+    <p>A menu page handles this by time and by placement. The dinner menu can surface automatically after 4pm. The bar tags can open the cocktail list rather than the dining room menu. The brunch menu appears on Saturday and Sunday mornings and disappears on Monday without anyone touching anything.</p>
+    <p>Each of those menus is also its own indexable page, which matters more than it sounds. "Brunch near me" and "happy hour near me" are separate high-intent searches from your cuisine plus your city, and a restaurant with a real brunch page can win one while a restaurant with a single combined PDF wins none of them.</p>
+    <p style="margin-bottom:0">For multi-location restaurants the same rule from our <a href="/seo-for-restaurants/">restaurant SEO guide</a> applies: each location needs its own menu page with its own hours and its own structured data, even where the food is identical. Four addresses sharing one menu URL means search engines cannot confidently attach hours or prices to any of them.</p>
+  </div>
+</section>
+
+<!-- ===== AD ===== -->
+<section class="sec-tight">
+  <div class="wrap">
+    <span class="ad-label">Sponsored &middot; Our parent agency</span>
+    <div class="ad-banner">
+      <div class="ad-b">
+        <h3>The menu is one piece of the picture</h3>
+        <p>Getting the menu readable matters most when the restaurant around it is also findable. Our <a href="https://eyetoad.com/" style="color:var(--butter)">Denver SEO agency</a> handles listings, reviews and AI visibility alongside the menu build, and our <a href="https://searchconverts.com/" style="color:var(--butter)">restaurant website design</a> team rebuilds the site underneath when it needs it.</p>
+      </div>
+      <a href="https://eyetoad.com/" class="btn btn-p">Get an audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="sec-cream" id="faq">
+  <div class="wrap narrow">
+    <div class="sec-head">
+      <span class="eyebrow">Straight answers</span>
+      <h2>NFC menu questions</h2>
+    </div>
+    <div class="faq">
+      <details><summary>What is an NFC menu?</summary><div class="faq-a"><p>An NFC menu opens when a guest taps their phone against a small tag built into a table tent, card or sticker. NFC stands for near field communication, the same technology behind tap-to-pay. There is no app to download and no camera to aim — the phone reads the tag from about an inch away and opens a web page instantly.</p></div></details>
+
+      <details><summary>Do guests need an app to use an NFC menu?</summary><div class="faq-a"><p>No. Nearly all phones sold in recent years read NFC tags natively, straight from the lock screen, with no app and often no unlocking. The phone shows a notification with the menu link and one tap opens it. This is the same mechanism as tap-to-pay, which is why most guests recognize the gesture immediately.</p></div></details>
+
+      <details><summary>Are NFC menus better than QR codes?</summary><div class="faq-a"><p>For the guest, yes — a tap is faster than aiming a camera, and it works in a dim dining room where QR scanning often struggles. For search visibility, the two are identical, because what matters is the destination rather than how you get there. An NFC tag pointing at a PDF is just as invisible to Google as a QR code pointing at the same PDF. We build both on one card so guests can use whichever they prefer.</p></div></details>
+
+      <details><summary>Can Google read a PDF menu?</summary><div class="faq-a"><p>Poorly, and often not at all. Google can sometimes extract raw text from a PDF but cannot reliably understand the structure — which line is a dish, which number is a price, which heading is a section. A photographed or fully designed menu is worse, because the words are pixels rather than text. AI assistants hit the same wall and cannot quote prices or dishes they cannot parse.</p></div></details>
+
+      <details><summary>How much do NFC menus cost?</summary><div class="faq-a"><p>The tags themselves are inexpensive per table. The real cost is in getting your menu into properly structured text with markup, which is a one-time build that varies with menu size and how the menu currently exists. A restaurant with a typed menu in a document is a much smaller project than one with only a designed PDF. We scope it per restaurant rather than quoting a package price.</p></div></details>
+
+      <details><summary>Can NFC tags be tampered with?</summary><div class="faq-a"><p>An unlocked tag can be rewritten by anyone with a phone, which is a genuine risk. Tags can be locked read-only at the time of programming, which permanently prevents the destination from being changed. We lock every tag we ship, and we would encourage asking any vendor directly whether theirs are locked before buying.</p></div></details>
+
+      <details><summary>Can I update prices without reprinting anything?</summary><div class="faq-a"><p>Yes. That is one of the strongest day-to-day arguments for a live menu. Price changes, seasonal swaps and marking an item unavailable all happen by editing the page, and every table sees the change immediately. The tags themselves never need reprogramming because they point at an address, not at content.</p></div></details>
+
+      <details><summary>Do I still need printed menus?</summary><div class="faq-a"><p>Keep a small stack. Some guests prefer paper, some cannot comfortably use a phone menu, and it covers you during any outage. Keeping ten printed menus behind the host stand costs almost nothing and removes the only real objection to going digital. The goal is to offer a fast path, not to force one.</p></div></details>
+
+      <details><summary>Will an NFC menu help my restaurant show up on Google?</summary><div class="faq-a"><p>Only if the menu is a real indexable page rather than a PDF. When it is, every dish becomes a phrase you can be found for, and dish-level searches carry the highest intent in the category. Adding the menu link to your Google Business Profile is what connects the two, and it is the step most restaurants skip after building the page.</p></div></details>
+
+      <details><summary>Do NFC menus work without wifi?</summary><div class="faq-a"><p>Guests are typically on cellular data rather than your restaurant's wifi, so your router going down usually does not affect them. The tag itself requires no power or connection of any kind. For a full connectivity outage in an area with poor cell service, the printed menus behind the host stand cover you — the same contingency you already keep for your POS.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section class="sec-dark" id="contact">
+  <div class="wrap">
+    <div class="grid g2" style="gap:48px;align-items:start">
+      <div>
+        <span class="eyebrow on-dark">Get started</span>
+        <h2>Let's get your menu out of that PDF</h2>
+        <p class="lede">Send us your current menu and we will tell you what it would take to convert it, what it would look like as a real page, and roughly how many dish-level searches you are currently invisible for.</p>
+        <ul class="check" style="margin-top:26px">
+          <li>We count the dish phrases your PDF is hiding.</li>
+          <li>We check whether your Google listing links a menu at all.</li>
+          <li>We test whether AI assistants can describe what you serve.</li>
+          <li>You get the findings whether or not you hire us.</li>
+        </ul>
+        <p style="margin-top:26px;margin-bottom:0">If your menu is already text and already marked up, we will say so and you will have spent nothing.</p>
+      </div>
+      <div>
+        <div class="form-card">
+          <h3>Free menu visibility check</h3>
+          <p style="font-size:.95rem;color:var(--ash)">Usually back within one business day.</p>
+          <form id="leadForm" method="POST" data-fs="info@eyetoad.com" novalidate>
+            <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_subject" value="RestaurantsAdvertising.com — NFC Menu Page Lead">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://restaurantsadvertising.com/thank-you.html">
+            <input type="hidden" name="source" value="restaurantsadvertising.com — /nfc-menu-restaurants/">
+            <div class="fld"><label for="f-name">Your name</label><input type="text" id="f-name" name="name" required autocomplete="name"></div>
+            <div class="fld"><label for="f-rest">Restaurant name</label><input type="text" id="f-rest" name="restaurant" required></div>
+            <div class="fld"><label for="f-city">City</label><input type="text" id="f-city" name="city" required autocomplete="address-level2"></div>
+            <div class="fld"><label for="f-email">Email</label><input type="email" id="f-email" name="email" required autocomplete="email"></div>
+            <div class="fld"><label for="f-phone">Phone</label><input type="tel" id="f-phone" name="phone" required autocomplete="tel"></div>
+            <div class="fld"><label for="f-help">What's your menu situation?</label>
+              <select id="f-help" name="goal">
+                <option>Menu is a PDF or image</option>
+                <option>Menu is printed only</option>
+                <option>Have QR codes, want NFC too</option>
+                <option>Want to cut delivery app commissions</option>
+                <option>Multiple locations, different menus</option>
+                <option>Not sure — take a look</option>
+              </select>
+            </div>
+            <div class="fld"><label for="f-msg">Anything else? (optional)</label><textarea id="f-msg" name="message"></textarea></div>
+            <button type="submit" class="btn btn-p" id="submitBtn" style="width:100%">Send my free menu check</button>
+            <div class="form-msg" id="formMsg" role="status" aria-live="polite"></div>
+            <p class="form-note">We use your details to prepare your check and reply. We do not sell or share your information.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-grid">
+      <div>
+        <img src="/images/restaurants-advertising-logo.png" alt="RestaurantsAdvertising.com" class="ftr-logo" width="300" height="76" loading="lazy">
+        <p>Restaurant advertising built for how people actually search in 2026 — Google, Maps, and AI assistants. A property of Eye To Ad Media, Denver, Colorado. Building search visibility since 2012.</p>
+      </div>
+      <div>
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/">Restaurant Advertising</a></li>
+          <li><a href="/seo-for-restaurants/">SEO for Restaurants</a></li>
+          <li><a href="/nfc-menu-restaurants/">NFC Menus</a></li>
+          <li><a href="/marketing-for-restaurants/">Restaurant Marketing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Free tools</h4>
+        <ul>
+          <li><a href="#calculator">Empty Table Calculator</a></li>
+          <li><a href="#scorecard">Visibility Scorecard</a></li>
+          <li><a href="#ai-test">AI Search Test</a></li>
+          <li><a href="#checklist">Fill The Tables Checklist</a></li>
+          <li><a href="#mistakes">Five Common Mistakes</a></li>
+          <li><a href="#glossary">Terms Defined</a></li>
+          <li><a href="#faq">Questions &amp; answers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Our network</h4>
+        <ul>
+          <li><a href="https://localfoodnearme.com/">LocalFoodNearMe.com</a></li>
+          <li><a href="https://bestrestaurantdenver.com/">BestRestaurantDenver.com</a></li>
+          <li><a href="https://linkrestaurants.com/">LinkRestaurants.com</a></li>
+          <li><a href="https://coloradowhatsup.com/">ColoradoWhatsUp.com</a></li>
+          <li><a href="https://denvercoloradothingstodo.com/">DenverColoradoThingsToDo.com</a></li>
+          <li><a href="https://eyetoad.com/">Eye To Ad Media</a></li>
+          <li><a href="https://searchconverts.com/">Search Converts</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ftr-btm">
+      <div>&copy; 2026 RestaurantsAdvertising.com &middot; A property of Eye To Ad Media, Search Converts LLC &middot; 1001 Bannock St #660, Denver, CO 80204</div>
+      <div><a href="mailto:info@eyetoad.com">info@eyetoad.com</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+/* ---------- MOBILE NAV + measureHeader ---------- */
+var burger=document.getElementById('burger'),mobnav=document.getElementById('mobnav'),hdr=document.getElementById('hdr');
+function measureHeader(){
+  if(!hdr)return;
+  var h=hdr.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--hdr-h',h+'px');
+  if(mobnav)mobnav.style.top=h+'px';
+}
+
+
+/* ---- TAP RIPPLE SEQUENCE ---- */
+var stage=document.getElementById('tapStage');
+function runTap(){
+  if(!stage)return;
+  var cap=document.getElementById('tapCaption'),cap2=document.getElementById('tapCaption2');
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce){
+    stage.classList.add('tap-live','tap-open','tap-flow');
+    if(cap)cap.textContent='Tap \u2192 menu \u2192 indexed';
+    return;
+  }
+  stage.classList.add('tap-live');
+  if(cap)cap.textContent='TAP';
+  if(cap2)cap2.textContent='Phone meets tag';
+  setTimeout(function(){
+    stage.classList.add('tap-open');
+    if(cap)cap.textContent='MENU OPENS';
+    if(cap2)cap2.textContent='Under one second, no app';
+  },1400);
+  setTimeout(function(){
+    stage.classList.add('tap-flow');
+    if(cap)cap.textContent='AND IT GETS READ';
+    if(cap2)cap2.textContent='Every dish becomes findable';
+  },3000);
+}
+if(stage&&'IntersectionObserver'in window){
+  new IntersectionObserver(function(en,ob){
+    en.forEach(function(e){if(e.isIntersecting){runTap();ob.disconnect();}});
+  },{threshold:.35}).observe(stage);
+}else{runTap();}
+
+/* ---- COMMISSION BLEED CALCULATOR ---- */
+var $=function(id){return document.getElementById(id)};
+function money(n){return '$'+Math.round(n).toLocaleString('en-US')}
+function calcBleed(){
+  var orders=+$('cOrders').value||0,ticket=+$('cTicket').value||0,
+      margin=+$('cMargin').value||1,rate=+$('cRate').value||0,shift=+$('cShift').value||0;
+  $('cRateOut').textContent=rate+'%';
+  $('cShiftOut').textContent=shift+'%';
+  var annualRev=orders*ticket*52;
+  var bleed=annualRev*(rate/100);
+  var saved=bleed*(shift/100);
+  $('cBleed').textContent=money(bleed);
+  $('cSaved').textContent=money(saved);
+  $('cEquiv').textContent=money(saved/(margin/100));
+  $('cSub').textContent='On '+money(annualRev)+' of delivery revenue a year at '+rate+
+    '% commission. Published rates run 15% to 30%, and effective cost often reaches 30% to 40% once promotions, processing and refunds are counted.';
+}
+['cOrders','cTicket','cMargin','cRate','cShift'].forEach(function(id){
+  var el=$(id);if(el)el.addEventListener('input',calcBleed);
+});
+if($('cOrders'))calcBleed();
+/* ---------- FORMSUBMIT : two-stage ---------- */
+var form=document.getElementById('leadForm'),loaded=Date.now();
+function buildAction(f){
+  var to=f.getAttribute('data-fs')||'';
+  return 'https://formsubmit.co/'+to;
+}
+var SPAM=/\b(seo services|backlink|crypto|casino|viagra|loan offer|bitcoin|escort|porn|guest post|cheap traffic)\b/i;
+if(form){
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var msg=document.getElementById('formMsg'),btn=document.getElementById('submitBtn');
+    msg.className='form-msg';msg.textContent='';
+    var hp=form.querySelector('[name="_honey"]');
+    if(hp&&hp.value){return;}
+    if(Date.now()-loaded<4000){
+      msg.className='form-msg err';msg.textContent='Hold on just a moment, then send again.';return;
+    }
+    var last=0;try{last=+(sessionStorage.getItem('ra_sent')||0)}catch(err){}
+    if(last&&Date.now()-last<60000){
+      msg.className='form-msg err';msg.textContent='Already sent. Give it a minute before sending another.';return;
+    }
+    var name=form.name.value.trim(),email=form.email.value.trim(),
+        phone=form.phone.value.trim(),rest=form.restaurant.value.trim(),
+        city=form.city.value.trim(),body=(form.message.value||'');
+    if(name.length<2||!/^[A-Za-z\u00C0-\u024F'\-.\s]{2,60}$/.test(name)){
+      msg.className='form-msg err';msg.textContent='Please enter your name.';return;
+    }
+    if(!/^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/.test(email)){
+      msg.className='form-msg err';msg.textContent='Please check your email address.';return;
+    }
+    if(phone.replace(/\D/g,'').length<10){
+      msg.className='form-msg err';msg.textContent='Please enter a valid phone number.';return;
+    }
+    if(!rest||!city){
+      msg.className='form-msg err';msg.textContent='Please add your restaurant name and city.';return;
+    }
+    if(SPAM.test(body)||SPAM.test(rest)){
+      msg.className='form-msg err';msg.textContent='That message could not be sent.';return;
+    }
+    btn.disabled=true;btn.textContent='Sending…';
+    var action=buildAction(form),data=new FormData(form);
+    fetch('https://formsubmit.co/ajax/'+form.getAttribute('data-fs'),{
+      method:'POST',body:data,headers:{'Accept':'application/json'}
+    }).then(function(r){
+      if(!r.ok)throw new Error('bad');
+      return r.json();
+    }).then(function(){
+      try{sessionStorage.setItem('ra_sent',Date.now())}catch(err){}
+      msg.className='form-msg ok';
+      msg.textContent='Got it. We will look at your restaurant and reply within one business day.';
+      form.reset();btn.textContent='Sent';
+    }).catch(function(){
+      // fallback: hidden-form POST into hidden iframe
+      try{
+        var ifr=document.createElement('iframe');ifr.name='ra_fb';ifr.style.display='none';
+        document.body.appendChild(ifr);
+        form.setAttribute('action',action);form.setAttribute('target','ra_fb');
+        HTMLFormElement.prototype.submit.call(form);
+        try{sessionStorage.setItem('ra_sent',Date.now())}catch(err){}
+        msg.className='form-msg ok';
+        msg.textContent='Got it. We will look at your restaurant and reply within one business day.';
+        btn.textContent='Sent';
+      }catch(err2){
+        btn.disabled=false;btn.textContent='Send my free visibility check';
+        msg.className='form-msg err';
+        msg.textContent='Something went wrong. Please email info@eyetoad.com directly.';
+      }
+    });
+  });
+}
+
+})();
+</script>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "Organization",
+   "@id": "https://restaurantsadvertising.com/#org"
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://restaurantsadvertising.com/#website"
+  },
+  {
+   "@type": "Person",
+   "@id": "https://restaurantsadvertising.com/#author",
+   "name": "Zachary Tye Wennstedt",
+   "url": "https://zacharytyewennstedt.com/"
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#webpage",
+   "url": "https://restaurantsadvertising.com/nfc-menu-restaurants/",
+   "name": "NFC Menus for Restaurants: Tap Menus That Google and AI Can Read",
+   "description": "NFC menus explained. How tap menus work, how they compare to QR codes, and why a PDF menu makes your restaurant invisible to Google and AI assistants. Free delivery commission calculator.",
+   "isPartOf": {
+    "@id": "https://restaurantsadvertising.com/#website"
+   },
+   "author": {
+    "@id": "https://restaurantsadvertising.com/#author"
+   },
+   "publisher": {
+    "@id": "https://restaurantsadvertising.com/#org"
+   },
+   "primaryImageOfPage": {
+    "@type": "ImageObject",
+    "url": "https://restaurantsadvertising.com/images/nfc-menu-restaurants.jpg"
+   },
+   "datePublished": "2026-08-11",
+   "dateModified": "2026-08-11",
+   "inLanguage": "en-US",
+   "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [
+     ".answer",
+     "h1"
+    ]
+   }
+  },
+  {
+   "@type": "BreadcrumbList",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#breadcrumb",
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Restaurant Advertising",
+     "item": "https://restaurantsadvertising.com/"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "NFC Menus for Restaurants",
+     "item": "https://restaurantsadvertising.com/nfc-menu-restaurants/"
+    }
+   ]
+  },
+  {
+   "@type": "Service",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#service",
+   "name": "NFC and QR Menu Builds for Restaurants",
+   "serviceType": "NFC tap menu design, structured menu markup and indexable menu pages",
+   "provider": {
+    "@id": "https://restaurantsadvertising.com/#org"
+   },
+   "areaServed": {
+    "@type": "Country",
+    "name": "United States"
+   },
+   "audience": {
+    "@type": "BusinessAudience",
+    "audienceType": "Restaurant owners and operators"
+   }
+  },
+  {
+   "@type": "HowTo",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#howto",
+   "name": "How to set up NFC menus in your restaurant",
+   "description": "Five steps to launch tap menus that work for guests at the table and are readable by search engines and AI assistants.",
+   "step": [
+    {
+     "@type": "HowToStep",
+     "position": 1,
+     "name": "Get the menu into text",
+     "text": "Convert the menu to actual typed text with sections, item names, descriptions and prices. Write descriptions the way guests describe dishes rather than the way a chef writes a spec."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 2,
+     "name": "Build the page and mark it up",
+     "text": "Turn the menu into a mobile-first page with Menu, MenuSection and MenuItem structured data behind every item, plus dietary tags and structured hours, address and phone."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 3,
+     "name": "Program and lock the tags",
+     "text": "Write each NFC tag with the menu address and lock it read-only so the destination cannot be changed. Generate matching QR codes printed on the reverse of every card."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 4,
+     "name": "Place them and brief the floor",
+     "text": "Position tags at tables, the host stand, the bar, the window and the takeout counter, then brief staff on where they are and that printed menus remain available."
+    },
+    {
+     "@type": "HowToStep",
+     "position": 5,
+     "name": "Link it everywhere",
+     "text": "Add the menu link to your Google Business Profile, website, Apple listing and social profiles so the menu becomes a search asset rather than only a table convenience."
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#placement",
+   "name": "Where to place NFC menu tags in a restaurant",
+   "numberOfItems": 7,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Table tents"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "Under-table or table-edge stickers"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "Host stand and waiting area"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Window or front door"
+    },
+    {
+     "@type": "ListItem",
+     "position": 5,
+     "name": "Bar rail"
+    },
+    {
+     "@type": "ListItem",
+     "position": 6,
+     "name": "Takeout counter and delivery bags"
+    },
+    {
+     "@type": "ListItem",
+     "position": 7,
+     "name": "Owner business cards"
+    }
+   ]
+  },
+  {
+   "@type": "ItemList",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#myths",
+   "name": "Four things people get wrong about digital menus",
+   "numberOfItems": 4,
+   "itemListElement": [
+    {
+     "@type": "ListItem",
+     "position": 1,
+     "name": "Digital menus are a pandemic leftover"
+    },
+    {
+     "@type": "ListItem",
+     "position": 2,
+     "name": "A digital menu means an app"
+    },
+    {
+     "@type": "ListItem",
+     "position": 3,
+     "name": "We already have QR codes, so we are covered"
+    },
+    {
+     "@type": "ListItem",
+     "position": 4,
+     "name": "Guests hate them"
+    }
+   ]
+  },
+  {
+   "@type": "DefinedTermSet",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#terms",
+   "name": "NFC and digital menu terms",
+   "hasDefinedTerm": [
+    {
+     "@type": "DefinedTerm",
+     "name": "NFC",
+     "description": "Near field communication. The short-range wireless technology behind tap-to-pay, which lets a phone read a tag from about an inch away with no app and no camera."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "NFC tag",
+     "description": "A small passive chip embedded in a table tent, card or sticker that holds a web address. It requires no battery and can be locked read-only so the destination cannot be changed."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Indexable menu page",
+     "description": "A restaurant menu published as a real HTML page with each dish as readable text and structured data, so search engines and AI assistants can read, quote and recommend individual items."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "First-party ordering",
+     "description": "Orders placed through a restaurant's own website or menu page rather than a delivery marketplace, so the restaurant keeps both the margin and the customer's contact information."
+    },
+    {
+     "@type": "DefinedTerm",
+     "name": "Dish-level search",
+     "description": "A search for a specific food rather than a cuisine category, such as cacio e pepe near me. These carry the highest intent in the restaurant category and require a readable text menu to win."
+    }
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#faq",
+   "isPartOf": {
+    "@id": "https://restaurantsadvertising.com/nfc-menu-restaurants/#webpage"
+   },
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What is an NFC menu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An NFC menu opens when a guest taps their phone against a small tag built into a table tent, card or sticker. NFC stands for near field communication, the same technology behind tap-to-pay. There is no app to download and no camera to aim. The phone reads the tag from about an inch away and opens a web page instantly."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do guests need an app to use an NFC menu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "No. Nearly all phones sold in recent years read NFC tags natively, straight from the lock screen, with no app and often no unlocking. The phone shows a notification with the menu link and one tap opens it. This is the same mechanism as tap-to-pay, which is why most guests recognize the gesture immediately."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Are NFC menus better than QR codes?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "For the guest, yes, because a tap is faster than aiming a camera and works in a dim dining room where QR scanning often struggles. For search visibility the two are identical, because what matters is the destination rather than how you get there. An NFC tag pointing at a PDF is just as invisible to Google as a QR code pointing at the same PDF."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can Google read a PDF menu?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Poorly, and often not at all. Google can sometimes extract raw text from a PDF but cannot reliably understand the structure, meaning which line is a dish, which number is a price and which heading is a section. A photographed or fully designed menu is worse because the words are pixels rather than text. AI assistants hit the same wall."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "How much do NFC menus cost?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "The tags themselves are inexpensive per table. The real cost is getting your menu into properly structured text with markup, which is a one-time build that varies with menu size and how the menu currently exists. A restaurant with a typed menu in a document is a much smaller project than one with only a designed PDF."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can NFC tags be tampered with?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "An unlocked tag can be rewritten by anyone with a phone, which is a genuine risk. Tags can be locked read-only at the time of programming, which permanently prevents the destination from being changed. Ask any vendor directly whether their tags are locked before buying."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Can I update prices without reprinting anything?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Yes. Price changes, seasonal swaps and marking an item unavailable all happen by editing the page, and every table sees the change immediately. The tags themselves never need reprogramming because they point at an address rather than at content."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do I still need printed menus?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Keep a small stack. Some guests prefer paper, some cannot comfortably use a phone menu, and it covers you during any outage. Keeping ten printed menus behind the host stand costs almost nothing and removes the only real objection to going digital."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Will an NFC menu help my restaurant show up on Google?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Only if the menu is a real indexable page rather than a PDF. When it is, every dish becomes a phrase you can be found for, and dish-level searches carry the highest intent in the category. Adding the menu link to your Google Business Profile is what connects the two."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Do NFC menus work without wifi?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Guests are typically on cellular data rather than the restaurant's wifi, so a router outage usually does not affect them. The tag itself requires no power or connection of any kind. For a full connectivity outage, printed menus behind the host stand cover you."
+     }
+    }
+   ]
+  }
+ ]
+}
+</script>
+</body>
+</html>
