@@ -1337,6 +1337,21 @@ function measureHeader(){
   document.documentElement.style.setProperty('--hdr-h',h+'px');
   if(mobnav)mobnav.style.top=h+'px';
 }
+measureHeader();
+window.addEventListener('resize',measureHeader);
+window.addEventListener('load',measureHeader);
+if(burger&&mobnav){
+  burger.addEventListener('click',function(){
+    var open=mobnav.classList.toggle('open');
+    burger.setAttribute('aria-expanded',open?'true':'false');
+    burger.setAttribute('aria-label',open?'Close menu':'Open menu');
+    measureHeader();
+  });
+  mobnav.addEventListener('click',function(e){
+    if(e.target.tagName==='A'){mobnav.classList.remove('open');burger.setAttribute('aria-expanded','false');}
+  });
+}
+
 
 
 /* ---- AI ANSWER TYPING ANIMATION ---- */
