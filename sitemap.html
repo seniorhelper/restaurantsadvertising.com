@@ -577,7 +577,7 @@ table.stats td.src{font-size:.82rem;color:var(--ash)}
     </div>
     <div class="ftr-btm">
       <div>&copy; 2026 RestaurantsAdvertising.com &middot; A property of Eye To Ad Media, Search Converts LLC &middot; 1001 Bannock St #660, Denver, CO 80204</div>
-      <div><a href="mailto:info@eyetoad.com">info@eyetoad.com</a></div>
+      <div><a class="eml" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=" data-show href="/contact/">email us</a></div>
     </div>
   </div>
 </footer>
@@ -610,5 +610,6 @@ if(burger&&mobnav){
 
 })();
 </script>
+<script>document.querySelectorAll("a.eml").forEach(function(a){var e=atob(a.dataset.a)+String.fromCharCode(64)+atob(a.dataset.b);a.href="mailto:"+e;if(a.hasAttribute("data-show"))a.textContent=e;});</script>
 </body>
 </html>

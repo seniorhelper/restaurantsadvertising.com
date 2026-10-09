@@ -1120,12 +1120,11 @@ table.stats td.src{font-size:.82rem;color:var(--ash)}
         <div class="form-card">
           <h3>Free restaurant marketing review</h3>
           <p style="font-size:.95rem;color:var(--ash)">Usually back within one business day. No obligation and no call required.</p>
-          <form id="leadForm" method="POST" data-fs="info@eyetoad.com" novalidate>
+          <form id="leadForm" method="POST" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=" novalidate>
             <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="RestaurantsAdvertising.com — Marketing Page Lead">
+            <input type="hidden" name="_subject" value="New lead — restaurantsadvertising.com · Marketing Page Lead">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://restaurantsadvertising.com/thank-you.html">
             <input type="hidden" name="source" value="restaurantsadvertising.com — /marketing-for-restaurants/">
             <div class="fld"><label for="f-name">Your name</label><input type="text" id="f-name" name="name" required autocomplete="name"></div>
             <div class="fld"><label for="f-rest">Restaurant name</label><input type="text" id="f-rest" name="restaurant" required></div>
@@ -1205,7 +1204,7 @@ table.stats td.src{font-size:.82rem;color:var(--ash)}
     </div>
     <div class="ftr-btm">
       <div>&copy; 2026 RestaurantsAdvertising.com &middot; A property of Eye To Ad Media, Search Converts LLC &middot; 1001 Bannock St #660, Denver, CO 80204</div>
-      <div><a href="mailto:info@eyetoad.com">info@eyetoad.com</a></div>
+      <div><a class="eml" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=" data-show href="/contact/">email us</a></div>
     </div>
   </div>
 </footer>
@@ -1400,9 +1399,8 @@ if(sticky){
 }
 /* ---------- FORMSUBMIT : two-stage ---------- */
 var form=document.getElementById('leadForm'),loaded=Date.now();
-function buildAction(f){
-  var to=f.getAttribute('data-fs')||'';
-  return 'https://formsubmit.co/'+to;
+function addr(f){
+  return atob(f.getAttribute('data-a'))+String.fromCharCode(64)+atob(f.getAttribute('data-b'));
 }
 var SPAM=/\b(seo services|backlink|crypto|casino|viagra|loan offer|bitcoin|escort|porn|guest post|cheap traffic)\b/i;
 if(form){
@@ -1412,8 +1410,8 @@ if(form){
     msg.className='form-msg';msg.textContent='';
     var hp=form.querySelector('[name="_honey"]');
     if(hp&&hp.value){return;}
-    if(Date.now()-loaded<4000){
-      msg.className='form-msg err';msg.textContent='Hold on just a moment, then send again.';return;
+    if(Date.now()-loaded<3500){
+      msg.className='form-msg err';msg.textContent='Give the form a moment, then send again.';return;
     }
     var last=0;try{last=+(sessionStorage.getItem('ra_sent')||0)}catch(err){}
     if(last&&Date.now()-last<60000){
@@ -1438,8 +1436,8 @@ if(form){
       msg.className='form-msg err';msg.textContent='That message could not be sent.';return;
     }
     btn.disabled=true;btn.textContent='Sending…';
-    var action=buildAction(form),data=new FormData(form);
-    fetch('https://formsubmit.co/ajax/'+form.getAttribute('data-fs'),{
+    var data=new FormData(form);
+    fetch('https://formsubmit.co/ajax/'+addr(form),{
       method:'POST',body:data,headers:{'Accept':'application/json'}
     }).then(function(r){
       if(!r.ok)throw new Error('bad');
@@ -1450,21 +1448,9 @@ if(form){
       msg.textContent='Got it. We will look at your restaurant and reply within one business day.';
       form.reset();btn.textContent='Sent';
     }).catch(function(){
-      // fallback: hidden-form POST into hidden iframe
-      try{
-        var ifr=document.createElement('iframe');ifr.name='ra_fb';ifr.style.display='none';
-        document.body.appendChild(ifr);
-        form.setAttribute('action',action);form.setAttribute('target','ra_fb');
-        HTMLFormElement.prototype.submit.call(form);
-        try{sessionStorage.setItem('ra_sent',Date.now())}catch(err){}
-        msg.className='form-msg ok';
-        msg.textContent='Got it. We will look at your restaurant and reply within one business day.';
-        btn.textContent='Sent';
-      }catch(err2){
-        btn.disabled=false;btn.textContent='Send my free visibility check';
-        msg.className='form-msg err';
-        msg.textContent='Something went wrong. Please email info@eyetoad.com directly.';
-      }
+      btn.disabled=false;btn.textContent='Send my free visibility check';
+      msg.className='form-msg err';
+      msg.textContent='That did not go through. Please call 1-800-481-8638.';
     });
   });
 }
@@ -1851,5 +1837,6 @@ if(form){
  ]
 }
 </script>
+<script>document.querySelectorAll("a.eml").forEach(function(a){var e=atob(a.dataset.a)+String.fromCharCode(64)+atob(a.dataset.b);a.href="mailto:"+e;if(a.hasAttribute("data-show"))a.textContent=e;});</script>
 </body>
 </html>

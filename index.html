@@ -1480,6 +1480,21 @@ table.stats td.src{font-size:.82rem;color:var(--ash)}
       </details>
 
       <details>
+        <summary>Should my restaurant run Google Ads?</summary>
+        <div class="faq-a"><p>Often, yes, if they are set up tightly. Search ads catch people who are already looking, for example a cuisine plus &ldquo;near me&rdquo;. Keep the targeting to the area your guests actually come from, schedule spend around the hours people decide where to eat, and send clicks to a page with the menu, hours and a call or reservation button. Judge the ads by calls, reservations and orders, not by clicks.</p></div>
+      </details>
+
+      <details>
+        <summary>When do social media ads make sense for a restaurant?</summary>
+        <div class="faq-a"><p>When you have something to show and a reason to come in now: a new menu, a seasonal dish, an event, a patio opening. Platforms like Instagram and Facebook let you target people within a set distance of the restaurant, and strong food photos or short video carry the ad. They build awareness well; pair them with a reservation or order link so you can see what they produce.</p></div>
+      </details>
+
+      <details>
+        <summary>What should a restaurant website include?</summary>
+        <div class="faq-a"><p>The things a hungry person checks in the first ten seconds: the menu as real text, today&rsquo;s hours, the address with a map link, a tap-to-call phone number, and reservation or ordering links. Add a few honest photos of the food and the room, make sure it loads fast on a phone, and keep the hours and menu identical to your Google Business Profile.</p></div>
+      </details>
+
+      <details>
         <summary>Do you work with restaurants outside Denver?</summary>
         <div class="faq-a"><p>Yes. We are based in Denver and our Colorado network runs deepest here, but the search and AI visibility work is location independent and we take restaurants nationwide. Local network placement on our Colorado properties naturally applies to Colorado restaurants, while Google, AI search, menu and website work applies anywhere. Our number is toll free from anywhere in the US: <a href="tel:+18004818638">1-800-481-8638</a>.</p></div>
       </details>
@@ -1534,12 +1549,11 @@ table.stats td.src{font-size:.82rem;color:var(--ash)}
         <div class="form-card">
           <h3>Get your free visibility check</h3>
           <p style="font-size:.95rem;color:var(--ash)">Usually back within one business day. Prefer to talk? Call <a href="tel:+18004818638" style="font-weight:800">1-800-481-8638</a>.</p>
-          <form id="leadForm" method="POST" data-fs="info@eyetoad.com" novalidate>
+          <form id="leadForm" method="POST" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=" novalidate>
             <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
             <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_subject" value="RestaurantsAdvertising.com — New Lead">
+            <input type="hidden" name="_subject" value="New lead — restaurantsadvertising.com · New Lead">
             <input type="hidden" name="_template" value="table">
-            <input type="hidden" name="_next" value="https://restaurantsadvertising.com/thank-you.html">
             <input type="hidden" name="source" value="restaurantsadvertising.com — homepage">
             <div class="fld">
               <label for="f-name">Your name</label>
@@ -1641,7 +1655,7 @@ table.stats td.src{font-size:.82rem;color:var(--ash)}
     </div>
     <div class="ftr-btm">
       <div>&copy; 2026 RestaurantsAdvertising.com &middot; A property of Eye To Ad Media, Search Converts LLC &middot; 1001 Bannock St #660, Denver, CO 80204 &middot; <a href="tel:+18004818638">1-800-481-8638</a></div>
-      <div><a href="mailto:info@eyetoad.com">info@eyetoad.com</a></div>
+      <div><a class="eml" data-a="aW5mbw==" data-b="ZXlldG9hZC5jb20=" data-show href="/contact/">email us</a></div>
     </div>
   </div>
 </footer>
@@ -1874,9 +1888,8 @@ if(aiBtn){
 
 /* ---------- FORMSUBMIT : two-stage ---------- */
 var form=document.getElementById('leadForm'),loaded=Date.now();
-function buildAction(f){
-  var to=f.getAttribute('data-fs')||'';
-  return 'https://formsubmit.co/'+to;
+function addr(f){
+  return atob(f.getAttribute('data-a'))+String.fromCharCode(64)+atob(f.getAttribute('data-b'));
 }
 var SPAM=/\b(seo services|backlink|crypto|casino|viagra|loan offer|bitcoin|escort|porn|guest post|cheap traffic)\b/i;
 if(form){
@@ -1886,8 +1899,8 @@ if(form){
     msg.className='form-msg';msg.textContent='';
     var hp=form.querySelector('[name="_honey"]');
     if(hp&&hp.value){return;}
-    if(Date.now()-loaded<4000){
-      msg.className='form-msg err';msg.textContent='Hold on just a moment, then send again.';return;
+    if(Date.now()-loaded<3500){
+      msg.className='form-msg err';msg.textContent='Give the form a moment, then send again.';return;
     }
     var last=0;try{last=+(sessionStorage.getItem('ra_sent')||0)}catch(err){}
     if(last&&Date.now()-last<60000){
@@ -1912,8 +1925,8 @@ if(form){
       msg.className='form-msg err';msg.textContent='That message could not be sent.';return;
     }
     btn.disabled=true;btn.textContent='Sending…';
-    var action=buildAction(form),data=new FormData(form);
-    fetch('https://formsubmit.co/ajax/'+form.getAttribute('data-fs'),{
+    var data=new FormData(form);
+    fetch('https://formsubmit.co/ajax/'+addr(form),{
       method:'POST',body:data,headers:{'Accept':'application/json'}
     }).then(function(r){
       if(!r.ok)throw new Error('bad');
@@ -1924,20 +1937,9 @@ if(form){
       msg.textContent='Got it. We will look at your restaurant and reply within one business day.';
       form.reset();btn.textContent='Sent';
     }).catch(function(){
-      try{
-        var ifr=document.createElement('iframe');ifr.name='ra_fb';ifr.style.display='none';
-        document.body.appendChild(ifr);
-        form.setAttribute('action',action);form.setAttribute('target','ra_fb');
-        HTMLFormElement.prototype.submit.call(form);
-        try{sessionStorage.setItem('ra_sent',Date.now())}catch(err){}
-        msg.className='form-msg ok';
-        msg.textContent='Got it. We will look at your restaurant and reply within one business day.';
-        btn.textContent='Sent';
-      }catch(err2){
-        btn.disabled=false;btn.textContent='Send my free visibility check';
-        msg.className='form-msg err';
-        msg.textContent='Something went wrong. Please call 1-800-481-8638 or email info@eyetoad.com directly.';
-      }
+      btn.disabled=false;btn.textContent='Send my free visibility check';
+      msg.className='form-msg err';
+      msg.textContent='That did not go through. Please call 1-800-481-8638.';
     });
   });
 }
@@ -2144,11 +2146,15 @@ if(form){
         {"@type":"Question","name":"Should I stop using DoorDash and Uber Eats?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily, but know what they cost. Standard commissions run 15% to 30% per order, and the effective cost often lands between 30% and 40% once promotions, processing and refunds are counted, against a typical independent net margin of 3% to 5%. The sustainable pattern is to use the apps for discovery and then move repeat customers to your own ordering and your own dining room."}},
         {"@type":"Question","name":"What is the difference between SEO, AIO and GEO?","acceptedAnswer":{"@type":"Answer","text":"SEO is search engine optimization, getting ranked in traditional Google results and Maps. AIO and GEO both describe optimizing to be cited by AI systems, appearing inside a ChatGPT recommendation or a Google AI answer rather than in a list of blue links. The underlying work overlaps heavily: clean structured data, readable content and consistent listings serve all three."}},
         {"@type":"Question","name":"How do I get more Google reviews?","acceptedAnswer":{"@type":"Answer","text":"Ask. Research shows 78% of consumers were asked to leave a review in the past year, and 83% of those asked went on to write one. Ask at the moment the guest says the meal was good, make it one tap from the check or a table card, and never offer anything in exchange, since incentivized reviews violate platform rules and now carry legal risk in the US."}},
+        {"@type":"Question","name":"Should my restaurant run Google Ads?","acceptedAnswer":{"@type":"Answer","text":"Often, yes, if they are set up tightly. Search ads catch people who are already looking, for example a cuisine plus “near me”. Keep the targeting to the area your guests actually come from, schedule spend around the hours people decide where to eat, and send clicks to a page with the menu, hours and a call or reservation button. Judge the ads by calls, reservations and orders, not by clicks."}},
+        {"@type":"Question","name":"When do social media ads make sense for a restaurant?","acceptedAnswer":{"@type":"Answer","text":"When you have something to show and a reason to come in now: a new menu, a seasonal dish, an event, a patio opening. Platforms like Instagram and Facebook let you target people within a set distance of the restaurant, and strong food photos or short video carry the ad. They build awareness well; pair them with a reservation or order link so you can see what they produce."}},
+        {"@type":"Question","name":"What should a restaurant website include?","acceptedAnswer":{"@type":"Answer","text":"The things a hungry person checks in the first ten seconds: the menu as real text, today’s hours, the address with a map link, a tap-to-call phone number, and reservation or ordering links. Add a few honest photos of the food and the room, make sure it loads fast on a phone, and keep the hours and menu identical to your Google Business Profile."}},
         {"@type":"Question","name":"Do you work with restaurants outside Denver?","acceptedAnswer":{"@type":"Answer","text":"Yes. We are based in Denver and our Colorado network runs deepest here, but the search and AI visibility work is location independent and we take restaurants nationwide. Local network placement on our Colorado properties naturally applies to Colorado restaurants, while Google, AI search, menu and website work applies anywhere. Our number is toll free from anywhere in the US: 1-800-481-8638."}}
       ]
     }
   ]
 }
 </script>
+<script>document.querySelectorAll("a.eml").forEach(function(a){var e=atob(a.dataset.a)+String.fromCharCode(64)+atob(a.dataset.b);a.href="mailto:"+e;if(a.hasAttribute("data-show"))a.textContent=e;});</script>
 </body>
 </html>

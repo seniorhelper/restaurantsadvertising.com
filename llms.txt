@@ -1,0 +1,17 @@
+# RestaurantsAdvertising.com
+
+> Restaurant advertising built for Google and AI search: getting restaurants found where hungry people look (Google Search, Google Maps, ChatGPT and other AI assistants) and chosen once they are found. Run by Eye To Ad Media, Denver, Colorado, working with restaurants nationwide. Phone 1-800-481-8638.
+
+## Pages
+
+- [Restaurant advertising](https://restaurantsadvertising.com/): Overview, free visibility scorecard, and straight answers on cost, Google Business Profile, Google Ads, social ads, delivery apps, reviews, and SEO vs AIO/GEO.
+- [SEO for restaurants](https://restaurantsadvertising.com/seo-for-restaurants/): Ranking in Google Maps and the local pack, dish-level searches, voice, and being cited by AI assistants. Includes a dish-level keyword builder.
+- [Marketing for restaurants](https://restaurantsadvertising.com/marketing-for-restaurants/): 28 marketing ideas ranked by cost and speed, budgeting, filling slow nights, and a 90-day plan builder.
+- [NFC menus for restaurants](https://restaurantsadvertising.com/nfc-menu-restaurants/): How tap menus work, NFC vs QR codes, why PDF menus are hard for search engines and AI to read, and a delivery commission calculator.
+- [Contact / quote](https://restaurantsadvertising.com/contact/): Request a custom restaurant advertising quote by phone or form.
+
+## Related
+
+- [Restaurant SEO guide](https://restaurantsseo.com/)
+- [NFC digital menus](https://linkrestaurants.com/)
+- [Eye To Ad Media](https://eyetoad.com/)
